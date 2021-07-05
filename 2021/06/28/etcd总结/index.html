@@ -6,21 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Redis要饭之路 | Hexo</title>
+  <title>etcd总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="redis的数据结构String一对一value可以是很多类型   Hashhttps:&#x2F;&#x2F;www.cnblogs.com&#x2F;hunternet&#x2F;p&#x2F;12651530.html就是一个可以一对多（比如结构体)的数据结构   ListSetSorted Setredis 设置过期时间（expire）定期删除redis默认是每隔 100ms 就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期">
+  <meta name="description" content="etcdhttps:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1CK4y127Lj?t&#x3D;19https:&#x2F;&#x2F;hardcore.feishu.cn&#x2F;docs&#x2F;doccnMRVFcMWn1zsEYBrbsDf8De#入门 https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;96428375">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis要饭之路">
-<meta property="og:url" content="http://example.com/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/index.html">
+<meta property="og:title" content="etcd总结">
+<meta property="og:url" content="http://example.com/2021/06/28/etcd%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="redis的数据结构String一对一value可以是很多类型   Hashhttps:&#x2F;&#x2F;www.cnblogs.com&#x2F;hunternet&#x2F;p&#x2F;12651530.html就是一个可以一对多（比如结构体)的数据结构   ListSetSorted Setredis 设置过期时间（expire）定期删除redis默认是每隔 100ms 就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期">
+<meta property="og:description" content="etcdhttps:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1CK4y127Lj?t&#x3D;19https:&#x2F;&#x2F;hardcore.feishu.cn&#x2F;docs&#x2F;doccnMRVFcMWn1zsEYBrbsDf8De#入门 https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;96428375">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/%E5%8C%BA%E5%88%AB.jpg">
-<meta property="article:published_time" content="2021-06-25T11:52:39.000Z">
-<meta property="article:modified_time" content="2021-06-30T09:11:36.897Z">
+<meta property="article:published_time" content="2021-06-28T06:34:23.000Z">
+<meta property="article:modified_time" content="2021-06-28T06:41:17.368Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="etce">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/%E5%8C%BA%E5%88%AB.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,43 +149,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Redis要饭之路" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-etcd总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Redis要饭之路
+      etcd总结
     </h1>
   
 
         
-        <a href="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/" class="archive-article-date">
-  	<time datetime="2021-06-25T11:52:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-25</time>
+        <a href="/2021/06/28/etcd%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2021-06-28T06:34:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="redis的数据结构"><a href="#redis的数据结构" class="headerlink" title="redis的数据结构"></a>redis的数据结构</h2><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p><code>一对一</code><br>value可以是很多类型  </p>
-<h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hunternet/p/12651530.html">https://www.cnblogs.com/hunternet/p/12651530.html</a><br>就是一个可以一对多（比如结构体)的数据结构  </p>
-<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><h3 id="Sorted-Set"><a href="#Sorted-Set" class="headerlink" title="Sorted Set"></a>Sorted Set</h3><h2 id="redis-设置过期时间（expire）"><a href="#redis-设置过期时间（expire）" class="headerlink" title="redis 设置过期时间（expire）"></a>redis 设置过期时间（expire）</h2><h3 id="定期删除"><a href="#定期删除" class="headerlink" title="定期删除"></a>定期删除</h3><p>redis默认是每隔 100ms 就随机抽取一些<code>设置了</code>过期时间的key，检查其是否过期，如果过期就删除。<br><code>注意这里是随机抽取的</code>。为什么要随机呢？你想一想假如 redis 存了几十万个 key ，每隔100ms就遍历所有的设置过期时间的 key 的话，就会给 CPU 带来很大的负载！ </p>
-<h3 id="惰性删除-手工删除"><a href="#惰性删除-手工删除" class="headerlink" title="惰性删除(手工删除)"></a>惰性删除(手工删除)</h3><p>定期删除可能会导致很多过期 key 到了时间并没有被删除掉。<br>所以就有了惰性删除。假如你的过期 key，靠定期删除没有被删除掉，还停留在内存里，除非你的系统去查一下那个 key，才会被redis给删除掉。这就是所谓的惰性删除，也是够懒的哈！</p>
-<h2 id="6种数据淘汰策略"><a href="#6种数据淘汰策略" class="headerlink" title="6种数据淘汰策略"></a>6种数据淘汰策略</h2><h2 id="Redis默认会分为16个库（0-15）"><a href="#Redis默认会分为16个库（0-15）" class="headerlink" title="Redis默认会分为16个库（0-15）"></a>Redis默认会分为16个库（0-15）</h2><p>Redis 默认情况下会分为16个数据库（0-15），每个库存放不同的数据，<code>单个库的Key不能重复</code>  </p>
-<h2 id="redis-持久化机制"><a href="#redis-持久化机制" class="headerlink" title="redis 持久化机制"></a>redis 持久化机制</h2><h3 id="快照（snapshotting，RDB）"><a href="#快照（snapshotting，RDB）" class="headerlink" title="快照（snapshotting，RDB）"></a>快照（snapshotting，RDB）</h3><p>快照持久化是Redis默认采用的持久化方式  </p>
-<h3 id="只追加文件（append-only-file-AOF）"><a href="#只追加文件（append-only-file-AOF）" class="headerlink" title="只追加文件（append-only file,AOF）"></a>只追加文件（append-only file,AOF）</h3><p>与快照持久化相比，<code>AOF持久化的实时性更好</code>，因此已成为主流的持久化方案。<br>默认情况下Redis没有开启AOF（append only file）方式的持久化，可以通过appendonly参数开启：<br>Redis的配置文件中存在三种不同的 AOF 持久化方式:<br>为了兼顾数据和写入性能，用户可以考虑 appendfsync everysec选项 ，<code>让Redis每秒同步一次AOF文件</code>，Redis性能几乎没受到任何影响。<br>而且这样即使出现系统崩溃，<code>用户最多只会丢失一秒之内产生的数据</code>。当硬盘忙于执行写入操作的时候，Redis还会优雅的放慢自己的速度以便适应硬盘的最大写入速度。<br><code>Redis 4.0 开始支持 RDB 和 AOF 的混合持久化</code></p>
-<h2 id="redis-事务"><a href="#redis-事务" class="headerlink" title="redis 事务"></a>redis 事务</h2><p>MULTI、EXEC、WATCH<br>在 Redis 中，事务总是具有原子性（Atomicity)、一致性(Consistency)和隔离性（Isolation），并且当 Redis 运行在某种特定的持久化模式下时，事务也具有持久性（Durability）。</p>
-<h2 id="缓存击穿（某个热点Key在高并发的情况下刚好过期）"><a href="#缓存击穿（某个热点Key在高并发的情况下刚好过期）" class="headerlink" title="缓存击穿（某个热点Key在高并发的情况下刚好过期）"></a>缓存击穿（某个热点Key在高并发的情况下刚好过期）</h2><p>在redis里使用<code>分布式锁</code>，没锁就等待<br><code>软过期</code>，对热点Key异步的延迟时间</p>
-<h2 id="缓存雪崩（一堆key同时失效，比如redis重启）"><a href="#缓存雪崩（一堆key同时失效，比如redis重启）" class="headerlink" title="缓存雪崩（一堆key同时失效，比如redis重启）"></a>缓存雪崩（一堆key同时失效，比如redis重启）</h2><p>expire different time</p>
-<h2 id="缓存穿透-查的东西不存在，还查了好多次"><a href="#缓存穿透-查的东西不存在，还查了好多次" class="headerlink" title="缓存穿透(查的东西不存在，还查了好多次)"></a>缓存穿透(查的东西不存在，还查了好多次)</h2><p>使用<code>布隆过滤器</code><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zK4y1h7pA?from=search&amp;seid=2244055215877910203">https://www.bilibili.com/video/BV1zK4y1h7pA?from=search&amp;seid=2244055215877910203</a><br>多个哈希函数，<code>每个对应的都是1才表示存在,有一个不是1就当做不存在 </code><br>假设K个哈希函数，时间复杂度就是O(K)<br>可以通过增加哈希函数的数量和占用的空间大小来降低误差率<br>将所有可能存在的数据哈希到一个足够大的bitmap中，一个一定不存在的数据会被这个bitmap拦截掉，从而避免了对底层存储系统的查询压力。<br>另外也有一个<code>更为简单粗暴</code>的方法，如果一个查询返回的数据为空（不管是数据不存在，还是系统故障），我们<code>仍然把这个空结果</code>进行缓存，但它的过期时间会很短，最长不超过五分钟。</p>
-<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><p>reddison（redis官方的分布式锁解决方案）<br>golang结合redis实现<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zengxm/articles/12797981.html">https://www.cnblogs.com/zengxm/articles/12797981.html</a>（NX用Const转化了，在最后面）<br>uuid(唯一标识符)<br>redis里面的key是唯一的<br>set不存在则创建，存在则修改<br>setnx 不存在则创建返回1，存在则不需要进行任何操作（返回0）  </p>
-<h3 id="集群式分布式锁"><a href="#集群式分布式锁" class="headerlink" title="集群式分布式锁"></a>集群式分布式锁</h3><h2 id="主从复制与哨兵"><a href="#主从复制与哨兵" class="headerlink" title="主从复制与哨兵"></a>主从复制与哨兵</h2><p>一般搞集群最少用<code>3台</code><br>从服务器使用slaveof命令<br>主从服务器建立<code>Socket长连接</code>，采用全量（首次，RDB文件（二进制文件））和增量同步数据（Aof日志文件）<br>在分布式环境里因为网络原因，导致强一致性实现很困难<br>一主多从（同步效率低）解决办法<code>树状结构</code><br>如果主服务器宕机的话，就需要选举个新的<code>（哨兵机制）</code><br>哨兵只需连接主服务器即可，但是可以知道所有服务器的信息  </p>
-<h3 id="Redis哨兵底层原理"><a href="#Redis哨兵底层原理" class="headerlink" title="Redis哨兵底层原理"></a>Redis哨兵底层原理</h3><p>每隔10s的时间，只需要监听Master即可，用<code>递归</code>的形式获得整个Redis的集群服务列表<br>多个哨兵的情况（哨兵<code>不建议单台</code>，<code>哨兵数量建议和Redis服务器数量一致</code>）<br><code>多个哨兵都会接到Master接点</code><br>原理<code>发布订阅</code>，每个哨兵启动的时候都会在同一个通道里写入信息，这样所有的哨兵就回连接在一起（<code>一个知道就都知道了</code>）<br>配置文件里可以指定有几个哨兵ping不通时认为Master宕机<br><code>哨兵只能帮助解决选举的问题，后续的主从复制还是要手动去配</code>   </p>
-<h2 id="Redis-Cluster-从3-0开始官方支持去中心化集群方式（多个主节点了）"><a href="#Redis-Cluster-从3-0开始官方支持去中心化集群方式（多个主节点了）" class="headerlink" title="Redis Cluster 从3.0开始官方支持去中心化集群方式（多个主节点了）"></a>Redis Cluster 从3.0开始官方支持去中心化集群方式（多个主节点了）</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bigdatalearnshare/p/13909100.html">https://www.cnblogs.com/bigdatalearnshare/p/13909100.html</a><br>本质就是<code>一致性哈希</code><br>16384（<code>固定16384，取余后值不变</code>）<br>核心原理：hash槽（Slot），预先分配16384个卡槽（一个卡槽可以放多个key），将卡槽分配到具体的Redis结点<br>Master才有卡槽，从节点只能读<br>Slot（卡槽）的作用：决定key存放的具体位置，从而均摊存放数据<br>优点 ： <code>可以动态的实现扩容与缩容</code><br>迁移的时候如果有数据，数据会跟着卡槽一起迁移到新的结点  </p>
-<h2 id="redis-和-memcached-的区别"><a href="#redis-和-memcached-的区别" class="headerlink" title="redis 和 memcached 的区别"></a>redis 和 memcached 的区别</h2><p>数据结构更丰富<br>redis支持<code>持久化</code><br>集群模式<br><code>memcached没有原生的集群模式</code>，需要依靠客户端来实现往集群中分片写入数据；但是 redis 目前是原生支持 cluster 模式的.<br>Memcached是多线程，<code>非阻塞IO复用</code>的网络模型；Redis使用<code>单线程的多路 IO 复用</code>模型<br><img src="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/%E5%8C%BA%E5%88%AB.jpg" alt="avatar"></p>
-<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/65765dd10671">https://www.jianshu.com/p/65765dd10671</a></p>
+        <h1 id="etcd"><a href="#etcd" class="headerlink" title="etcd"></a>etcd</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CK4y127Lj?t=19">https://www.bilibili.com/video/BV1CK4y127Lj?t=19</a><br><a target="_blank" rel="noopener" href="https://hardcore.feishu.cn/docs/doccnMRVFcMWn1zsEYBrbsDf8De#">https://hardcore.feishu.cn/docs/doccnMRVFcMWn1zsEYBrbsDf8De#</a><br>入门 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/96428375">https://zhuanlan.zhihu.com/p/96428375</a></p>
 
       
 
@@ -216,6 +199,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">etce</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -266,7 +260,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/28/etcd%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,18 +274,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/06/25/Golang%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/06/28/git%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Golang要饭之路
+          git基础用法
         
       </div>
     </a>
   
   
-    <a href="/2021/06/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据库总结</div>
+    <a href="/2021/06/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构要饭之路</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -8,14 +8,17 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Golang要饭之路 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="Golang 要饭之路Maphttps:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;0sjLD4_12Ql0QeWsO_A5pQ   哈希桶（Bucket），就是拉链法一个Hash表里面有很多Bucket（桶），可以理解为单位的存储空间 扩容（负载因子）负载因子定义： count（存储键值对的数目）&#x2F;m（桶数目的数量）先开辟更多的痛，然后要把旧桶的数据迁移到新桶要记录旧桶在哪，迁移到哪   一次性扩">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Golang要饭之路">
 <meta property="og:url" content="http://example.com/2021/06/25/Golang%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Golang 要饭之路Maphttps:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;0sjLD4_12Ql0QeWsO_A5pQ   哈希桶（Bucket），就是拉链法一个Hash表里面有很多Bucket（桶），可以理解为单位的存储空间 扩容（负载因子）负载因子定义： count（存储键值对的数目）&#x2F;m（桶数目的数量）先开辟更多的痛，然后要把旧桶的数据迁移到新桶要记录旧桶在哪，迁移到哪   一次性扩">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-25T14:12:33.000Z">
-<meta property="article:modified_time" content="2021-06-25T14:12:33.378Z">
+<meta property="article:modified_time" content="2021-07-05T09:08:46.349Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Golang">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -166,7 +169,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="Golang-要饭之路"><a href="#Golang-要饭之路" class="headerlink" title="Golang 要饭之路"></a>Golang 要饭之路</h1><h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/0sjLD4_12Ql0QeWsO_A5pQ">https://mp.weixin.qq.com/s/0sjLD4_12Ql0QeWsO_A5pQ</a>  </p>
+<h3 id="哈希桶（Bucket），就是拉链法"><a href="#哈希桶（Bucket），就是拉链法" class="headerlink" title="哈希桶（Bucket），就是拉链法"></a>哈希桶（Bucket），就是拉链法</h3><p>一个Hash表里面有很多<code>Bucket（桶）</code>，可以理解为单位的存储空间</p>
+<h3 id="扩容（负载因子）"><a href="#扩容（负载因子）" class="headerlink" title="扩容（负载因子）"></a>扩容（负载因子）</h3><p>负载因子定义： count（存储键值对的数目）/m（桶数目的数量）<br>先开辟更多的痛，然后要把旧桶的数据迁移到新桶<br>要记录旧桶在哪，迁移到哪  </p>
+<h4 id="一次性扩容-与-渐进式扩容"><a href="#一次性扩容-与-渐进式扩容" class="headerlink" title="一次性扩容 与 渐进式扩容"></a>一次性扩容 与 渐进式扩容</h4><p>一般渐进式扩容更常见（因此用nevacuate记录下一个要被迁移的旧桶编号）  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">buckets    unsafe.Pointer // 常规桶起始地址  </span><br><span class="line">oldbuckets unsafe.Pointer // 扩容时保存原来常规桶的地  </span><br></pre></td></tr></table></figure>
+
+
+<h3 id="hmap与bmap（桶）"><a href="#hmap与bmap（桶）" class="headerlink" title="hmap与bmap（桶）"></a>hmap与bmap（桶）</h3><p>tophash（高八位）<br>overflow（溢出桶,就是备用桶。<code>如果一个桶里放的元素超过了8个，则需要溢出桶，采用拉链缝上去，bmap最后的overflow就是干这件事情的</code>）<br><code>每个桶里可以存储8个键值对</code>，并且为了内存使用更加紧凑，<code>8个键放一起</code>，<code>8个值放一起</code>。对应每个key<code>只保存</code>其哈希值的高8位（tophash）。<br>而每个键值对的tophash、key和value的索引顺序一一对应。<br><code>extra字段</code>指向一个<code>mapextra结构体</code>，里面记录的都是<code>溢出桶</code>相关的信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">type mapextra struct &#123;</span><br><span class="line">    overflow    *[]*bmap //把已经用到的溢出桶链起来</span><br><span class="line">    oldoverflow *[]*bmap //渐进式扩容时，保存旧桶用到的溢出桶</span><br><span class="line">    nextOverflow *bmap   //下一个尚未使用的溢出桶</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Go语言中可以通过“==”来比较是否相等的类型，都可以作为map的key类型。(换言之不能用”==”来比较的类型就不能装入map当中)  </p>
+<h3 id="扩容规则"><a href="#扩容规则" class="headerlink" title="扩容规则"></a>扩容规则</h3><p>默认是6.5  </p>
+<p>大于6.5的时候开辟2倍的空间，分配新桶数目是旧桶的2倍，hmap.oldbuckets指向旧桶，hmap.buckets指向新桶。hmap.nevacuate为0，表示接下来要迁移编号为0的旧桶。</p>
+<h4 id="等量扩容"><a href="#等量扩容" class="headerlink" title="等量扩容"></a>等量扩容</h4><p><code>就是创建和旧桶数目一样多的新桶，然后把原来的键值对迁移到新桶中(类似于位置重排)</code>  </p>
+<p>如果没有超过设置的负载因子上限，<code>但是使用的溢出桶较多，也会触发扩容</code>，不过这一次是等量扩容。（<code>有很多键值对被删除的情况</code>）<br>这种情况下，如果把这些键值对重新安排到等量的新桶中，虽然哈希值没变，常规桶数目没变，每个键值对还是会选择与旧桶一样的新桶编号，但是能够存储的更加紧凑，进而减少溢出桶的使用。</p>
+<h2 id="不可寻址"><a href="#不可寻址" class="headerlink" title="不可寻址"></a>不可寻址</h2><p>正是因为扩容过程中会发生键值对迁移，键值对的地址也会发生改变，所以才说map的元素是不可寻址的，如果要取一个<code>value</code>的地址则不能通过编译。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//k := &amp;a[&quot;k1&quot;]会在编译阶段出错</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h1><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c8a5e7cc5851">https://www.jianshu.com/p/c8a5e7cc5851</a></p>
+<hr>
+<h1 id="元数据"><a href="#元数据" class="headerlink" title="元数据"></a>元数据</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=1&amp;sn=e74a2e2fdb460db7b9a81e8f03b75db2&amp;scene=19#wechat_redirect">https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=1&amp;sn=e74a2e2fdb460db7b9a81e8f03b75db2&amp;scene=19#wechat_redirect</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">type _type struct &#123;</span><br><span class="line">    size       uintptr</span><br><span class="line">    ptrdata    uintptr</span><br><span class="line">    hash       uint32</span><br><span class="line">    tflag      tflag</span><br><span class="line">    align      uint8</span><br><span class="line">    fieldalign uint8</span><br><span class="line">    kind       uint8</span><br><span class="line">    alg        *typeAlg</span><br><span class="line">    gcdata     *byte</span><br><span class="line">    str        nameOff</span><br><span class="line">    ptrToThis  typeOff</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在_type之后存储的是各类型<code>额外需要描述的信息</code>，例如slice的类型元数据在_type结构体后面，记录着一个*_type，指向其存储的元素的类型元数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">type MyType1 = int32 //别名</span><br><span class="line">type MyType2 int32 //新建了一个新类型</span><br></pre></td></tr></table></figure>
+<p>然而如果是<code>自定义类型</code>，这后面还会有一个uncommontype结构体。(<code>比自定义多一个</code>)</p>
+<hr>
+<h1 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=2&amp;sn=0363c7102943888e0f390f3f5a9ae662&amp;scene=19#wechat_redirect">https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=2&amp;sn=0363c7102943888e0f390f3f5a9ae662&amp;scene=19#wechat_redirect</a></p>
+<h2 id="空接口"><a href="#空接口" class="headerlink" title="空接口"></a>空接口</h2><p>空接口类型可以接收<code>任意类型</code>的数据，它只要记录<code>这个数据在哪儿，是什么类型的就足够了。(不需要记录值！！！)</code><br>空接口变量数据结构如下，其中_type指向接口的动态类型元数据，data就指向接口的动态值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type eface struct &#123;</span><br><span class="line">    _type *_type //指向的是对应类型的元数据</span><br><span class="line">    data  unsafe.Pointer //指向赋值对象本身,就是个指针</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="非空接口"><a href="#非空接口" class="headerlink" title="非空接口"></a>非空接口</h2><p>非空接口就是<code>有方法列表</code>的接口类型，一个变量要想赋值给一个非空接口类型，其类型必须要实现该接口要求的<code>所有方法</code>才行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type iface struct &#123;</span><br><span class="line">    tab   *itab</span><br><span class="line">    data  unsafe.Pointer</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">type itab struct &#123;</span><br><span class="line">    inter  *interfacetype //是interface的类型元数据，它里面记录了这个接口类型的描述信息，接口要求的方法列表就记录在interfacetype.mhdr这里。</span><br><span class="line">    _type  *_type</span><br><span class="line">    hash   uint32 // itab.hash是从itab._type中拷贝来的，是类型的哈希值，用于快速判断类型是否相等时使用。</span><br><span class="line">    _      [4]byte</span><br><span class="line">    fun    [1]uintptr //记录的是动态类型实现的那些接口要求的方法的地址，是从方法元数据中拷贝来的，为的是快速定位到方法。如果itab._type对应的类型没有实现这个接口，则itab.fun[0]=0，这在类型断言时会用到。</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">type interfacetype struct &#123;</span><br><span class="line">    typ      _type</span><br><span class="line">    pkgpath  name</span><br><span class="line">    mhdr     []imethod</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<h2 id="关于itab的复用？？"><a href="#关于itab的复用？？" class="headerlink" title="关于itab的复用？？"></a>关于itab的复用？？</h2><p>实际上Go语言会把用到的itab结构体缓存起来，并且以&lt;接口类型, 动态类型&gt;组合为key，以*itab为value，构造一个哈希表，用于存储与查询itab信息。<br>如果能查询到对应的itab指针，就直接拿来使用。若没有就要再创建，然后添加到itabTable中。(<code>以后再次使用就不用创建了？？？</code>)</p>
+<h2 id="类型断言-判断当前interface指向的类型"><a href="#类型断言-判断当前interface指向的类型" class="headerlink" title="类型断言(判断当前interface指向的类型)"></a>类型断言(判断当前interface指向的类型)</h2><p>example <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/361231472">https://zhuanlan.zhihu.com/p/361231472</a><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=3&amp;sn=6b41278ef6ee7425865e67e00c4c078e&amp;scene=19#wechat_redirect">https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=3&amp;sn=6b41278ef6ee7425865e67e00c4c078e&amp;scene=19#wechat_redirect</a></p>
+<h2 id="interface类型转换（大多用于泛型的实现）"><a href="#interface类型转换（大多用于泛型的实现）" class="headerlink" title="interface类型转换（大多用于泛型的实现）"></a>interface类型转换（大多用于泛型的实现）</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c87c6a0c4acb">https://www.jianshu.com/p/c87c6a0c4acb</a></p>
+
       
 
       
@@ -195,6 +234,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -413,6 +463,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">etce</a>
               </li>
             
             <div class="clearfix"></div>
