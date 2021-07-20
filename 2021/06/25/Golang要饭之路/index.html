@@ -16,7 +16,7 @@
 <meta property="og:description" content="Golang 要饭之路Maphttps:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;0sjLD4_12Ql0QeWsO_A5pQ   哈希桶（Bucket），就是拉链法一个Hash表里面有很多Bucket（桶），可以理解为单位的存储空间 扩容（负载因子）负载因子定义： count（存储键值对的数目）&#x2F;m（桶数目的数量）先开辟更多的痛，然后要把旧桶的数据迁移到新桶要记录旧桶在哪，迁移到哪   一次性扩">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-25T14:12:33.000Z">
-<meta property="article:modified_time" content="2021-07-12T07:32:03.979Z">
+<meta property="article:modified_time" content="2021-07-15T12:49:30.310Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Golang">
 <meta name="twitter:card" content="summary">
@@ -213,6 +213,7 @@
 <p>屏障：类似于Hook，在XX操作的时候做点事情<br>（插入写屏障）对象被<code>引用</code>时触发的机制 （添加下游对象，<code>下游对象全部为灰色</code>）<br><code>堆</code>启用插入屏障,<code>栈</code>在最后之前用STW（短暂的STW）(如果栈中黑色结点调用白色就需要短暂的STW，在清除白色对象之前开启STW)  </p>
 <p>（删除写屏障）对象被<code>删除</code>时触发的机制（被删除时，如果自身为白色或者灰色，那么被标记为灰色（可以多活过一轮））<br>缺点：回收精度低<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/krock/p/14409225.html">https://www.cnblogs.com/krock/p/14409225.html</a> (Java的例子，比较好懂)  </p>
 <h2 id="并行垃圾回收"><a href="#并行垃圾回收" class="headerlink" title="并行垃圾回收"></a>并行垃圾回收</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Go的垃圾回收官方形容为 非分代 非紧缩 写屏障 并发标记清理。<br>非分代是golang GC区别于JVM GC分代模型的特点；<br><code>非紧缩意味着在回收垃圾的过程中，不需要像复制算法那样移动内存中的对象，这样避免STW过长；</code><br>标记清理算法的字面解释，就是将可达的内存块进行标记mark，最后没有标记的不可达内存块将进行清理sweep；<br>Golang中实现标记功能的算法就是三色标记法，<br>Golang里面三色标记法会造成<code>错标</code>问题，使用写屏障来解决这种问题，而JVM里面的CMS和G1解决错标或者漏标问题的算法分别是Increment Update和SATB</p>
+<h1 id="关于defer"><a href="#关于defer" class="headerlink" title="关于defer"></a>关于defer</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hv411x7we?p=9">https://www.bilibili.com/video/BV1hv411x7we?p=9</a>  </p>
 
       
 
