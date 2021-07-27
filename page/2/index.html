@@ -146,6 +146,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于Raft" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/06/%E5%85%B3%E4%BA%8ERaft/">关于Raft</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/06/%E5%85%B3%E4%BA%8ERaft/" class="archive-article-date">
+  	<time datetime="2021-07-06T06:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013970991/article/details/76602213">https://blog.csdn.net/u013970991/article/details/76602213</a><br>动画演示（Very good！！）  <a target="_blank" rel="noopener" href="http://thesecretlivesofdata.com/raft/">http://thesecretlivesofdata.com/raft/</a>  </p>
+<p>先进行日志同步，半数ok后再集体提交，如果得不到半数，领导者也无法提交</p>
+<p>脑裂的时候，以任期号更新的为准，之前的会进行回滚然后匹配新领导者的日志</p>
+<p>term任期号</p>
+<h1 id="Cap理论"><a href="#Cap理论" class="headerlink" title="Cap理论"></a>Cap理论</h1><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/54105974">https://www.zhihu.com/question/54105974</a></p>
+<h1 id="网络分区"><a href="#网络分区" class="headerlink" title="网络分区"></a>网络分区</h1><p>比如，我们的分布式存储系统有 A、B 两个节点。那么，当 A、B 之间由于可能路由器、交换机等底层网络设备出现了故障，A 和 B 通信出现了问题，但是 A、B 依然都在运行，都在对外提供服务。这时候，就说 A 和 B 发生了分区。</p>
+<h1 id="3个rpc"><a href="#3个rpc" class="headerlink" title="3个rpc"></a>3个rpc</h1><p>候选人 -&gt;  跟随人（选举投票Rpc）</p>
+<p>领导者 -&gt; 跟随人</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/06/%E5%85%B3%E4%BA%8ERaft/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-React辅助要饭之路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -656,9 +726,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="redis的数据结构"><a href="#redis的数据结构" class="headerlink" title="redis的数据结构"></a>redis的数据结构</h2><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p><code>一对一</code><br>value可以是很多类型  </p>
+        <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzkzMDI1NjcyOQ==&mid=2247487752&idx=1&sn=72a1725e1c86bb5e883dd8444e5bd6c4&source=41#wechat_redirect">一个系列</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhaoliang831214/article/details/82051449">几个图不错</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dc8d4c230b28?from=groupmessage">https://www.jianshu.com/p/dc8d4c230b28?from=groupmessage</a><br>[redis底层数据结构] (<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ysocean/p/9080942.html)%E8%BF%99%E4%B8%AA%E7%B3%BB%E5%88%97%E5%BE%88%E5%A5%BD%EF%BC%81%EF%BC%81%EF%BC%81%E4%B8%80%E5%85%B113%E8%8A%82">https://www.cnblogs.com/ysocean/p/9080942.html)这个系列很好！！！一共13节</a></p>
+<h2 id="redis的数据结构"><a href="#redis的数据结构" class="headerlink" title="redis的数据结构"></a>redis的数据结构</h2><p><img src="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" alt="avatar"><br><img src="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/%E5%86%85%E9%83%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" alt="avatar"></p>
+<h3 id="Redis底层结构"><a href="#Redis底层结构" class="headerlink" title="Redis底层结构"></a>Redis底层结构</h3><h3 id="跳跃表（有点像分块）"><a href="#跳跃表（有点像分块）" class="headerlink" title="跳跃表（有点像分块）"></a><code>跳跃表（有点像分块）</code></h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c2841d65df4c%EF%BC%88%E8%AF%A6%E8%A7%A3%EF%BC%89">https://www.jianshu.com/p/c2841d65df4c（详解）</a><br>　　跳跃表（skiplist）是一种有序数据结构，它通过在每个节点中维持多个指向其它节点的指针，从而达到快速访问节点的目的。具有如下性质：</p>
+<p>　　1、由很多层结构组成；  </p>
+<p>　　2、每一层都是一个有序的链表，排列顺序为由高层到底层，都至少包含两个链表节点，分别是前面的head节点和后面的nil节点；  </p>
+<p>　　3、最底层的链表包含了所有的元素；  </p>
+<p>　　4、如果一个元素出现在某一层的链表中，那么在该层之下的链表也全都会出现（上一层的元素是当前层的元素的子集）；  </p>
+<p>　　5、链表中的每个节点都包含两个指针，一个指向同一层的下一个链表节点，另一个指向下一层的同一个链表节点；<br><img src="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/%E8%B7%B3%E8%B7%83%E8%A1%A8.png" alt="avatar"></p>
+<h3 id="压缩列表（ZipList，为了节约内存）"><a href="#压缩列表（ZipList，为了节约内存）" class="headerlink" title="压缩列表（ZipList，为了节约内存）"></a>压缩列表（ZipList，为了节约内存）</h3><p><code>压缩列表的原理：压缩列表并不是对数据利用某种算法进行压缩，而是将数据按照一定规则编码在一块连续的内存区域，目的是节省内存。</code></p>
+<h3 id="Redis五种数据结构"><a href="#Redis五种数据结构" class="headerlink" title="Redis五种数据结构"></a>Redis五种数据结构</h3><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p><code>一对一</code><br>value可以是很多类型  </p>
+<h3 id="底层结构"><a href="#底层结构" class="headerlink" title="底层结构"></a><code>底层结构</code></h3><p>简单动态字符串（simple dynamic string,SDS）  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">struct sdshdr&#123;</span><br><span class="line">     //记录buf数组中已使用字节的数量</span><br><span class="line">     //等于 SDS 保存字符串的长度</span><br><span class="line">     int len;</span><br><span class="line">     //记录 buf 数组中未使用字节的数量</span><br><span class="line">     int free;</span><br><span class="line">     //字节数组，用于保存字符串</span><br><span class="line">     char buf[];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/SDS%E6%80%BB%E7%BB%93.png" alt="avatar"></p>
 <h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hunternet/p/12651530.html">https://www.cnblogs.com/hunternet/p/12651530.html</a><br>就是一个可以一对多（比如结构体)的数据结构  </p>
-<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><h3 id="Sorted-Set"><a href="#Sorted-Set" class="headerlink" title="Sorted Set"></a>Sorted Set</h3><h2 id="redis-设置过期时间（expire）"><a href="#redis-设置过期时间（expire）" class="headerlink" title="redis 设置过期时间（expire）"></a>redis 设置过期时间（expire）</h2><h3 id="定期删除"><a href="#定期删除" class="headerlink" title="定期删除"></a>定期删除</h3><p>redis默认是每隔 100ms 就随机抽取一些<code>设置了</code>过期时间的key，检查其是否过期，如果过期就删除。<br><code>注意这里是随机抽取的</code>。为什么要随机呢？你想一想假如 redis 存了几十万个 key ，每隔100ms就遍历所有的设置过期时间的 key 的话，就会给 CPU 带来很大的负载！ </p>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typedef  struct listNode&#123;</span><br><span class="line">       //前置节点</span><br><span class="line">       struct listNode *prev;</span><br><span class="line">       //后置节点</span><br><span class="line">       struct listNode *next;</span><br><span class="line">       //节点的值</span><br><span class="line">       void *value;  </span><br><span class="line">&#125;listNode</span><br></pre></td></tr></table></figure>
+<pre><code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    typedef struct list&#123;</span><br><span class="line">     //表头节点</span><br><span class="line">     listNode *head;</span><br><span class="line">     //表尾节点</span><br><span class="line">     listNode *tail;</span><br><span class="line">     //链表所包含的节点数量</span><br><span class="line">     unsignedlong len;</span><br><span class="line">     //节点值复制函数</span><br><span class="line">     void (*free) (void *ptr);</span><br><span class="line">     //节点值释放函数</span><br><span class="line">     void (*free) (void *ptr);</span><br><span class="line">     //节点值对比函数</span><br><span class="line">     int (*match) (void *ptr,void *key);</span><br><span class="line">&#125;list;</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>　　Redis链表特性：  </p>
+<p>　　①、双端：链表具有前置节点和后置节点的引用，获取这两个节点时间复杂度都为O(1)。</p>
+<p>　　②、<code>无环</code>：表头节点的 prev 指针和表尾节点的 next 指针都指向 NULL,对链表的访问都是以 NULL 结束。　　</p>
+<p>　　③、带链表长度计数器：通过 len 属性获取链表长度的时间复杂度为 O(1)。</p>
+<p>　　④、多态：链表节点使用 void* 指针来保存节点值，可以保存各种不同类型的值</p>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><h3 id="Sorted-Set"><a href="#Sorted-Set" class="headerlink" title="Sorted Set"></a>Sorted Set</h3><h3 id="Redis-Object"><a href="#Redis-Object" class="headerlink" title="Redis Object"></a>Redis Object</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ysocean/p/9102811.html">https://www.cnblogs.com/ysocean/p/9102811.html</a><br>Redis使用前面说的五大数据类型来表示键和值，每次在Redis数据库中创建一个键值对时，至少会创建两个对象，<code>一个是键对象，一个是值对象，</code>而Redis中的每个对象都是由 redisObject 结构来表示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">typedef struct redisObject&#123;</span><br><span class="line">     //类型</span><br><span class="line">     unsigned type:4;</span><br><span class="line">     //编码</span><br><span class="line">     unsigned encoding:4;</span><br><span class="line">     //指向底层数据结构的指针</span><br><span class="line">     void *ptr; //就是这个指针发散出去指向底层的数据结构</span><br><span class="line">     //引用计数</span><br><span class="line">     int refcount;</span><br><span class="line">     //记录最后一次被程序访问的时间</span><br><span class="line">     unsigned lru:22;</span><br><span class="line"> </span><br><span class="line">&#125;robj</span><br></pre></td></tr></table></figure>
+<h2 id="redis-设置过期时间（expire）"><a href="#redis-设置过期时间（expire）" class="headerlink" title="redis 设置过期时间（expire）"></a>redis 设置过期时间（expire）</h2><h3 id="定期删除"><a href="#定期删除" class="headerlink" title="定期删除"></a>定期删除</h3><p>redis默认是每隔 100ms 就随机抽取一些<code>设置了</code>过期时间的key，检查其是否过期，如果过期就删除。<br><code>注意这里是随机抽取的</code>。为什么要随机呢？你想一想假如 redis 存了几十万个 key ，每隔100ms就遍历所有的设置过期时间的 key 的话，就会给 CPU 带来很大的负载！ </p>
 <h3 id="惰性删除-手工删除"><a href="#惰性删除-手工删除" class="headerlink" title="惰性删除(手工删除)"></a>惰性删除(手工删除)</h3><p>定期删除可能会导致很多过期 key 到了时间并没有被删除掉。<br>所以就有了惰性删除。假如你的过期 key，靠定期删除没有被删除掉，还停留在内存里，除非你的系统去查一下那个 key，才会被redis给删除掉。这就是所谓的惰性删除，也是够懒的哈！</p>
 <h2 id="6种数据淘汰策略"><a href="#6种数据淘汰策略" class="headerlink" title="6种数据淘汰策略"></a>6种数据淘汰策略</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105587132">https://zhuanlan.zhihu.com/p/105587132</a></p>
 <h2 id="Redis默认会分为16个库（0-15）"><a href="#Redis默认会分为16个库（0-15）" class="headerlink" title="Redis默认会分为16个库（0-15）"></a>Redis默认会分为16个库（0-15）</h2><p>Redis 默认情况下会分为16个数据库（0-15），每个库存放不同的数据，<code>单个库的Key不能重复</code>  </p>
@@ -1012,6 +1104,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">汇编</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
             
             <div class="clearfix"></div>

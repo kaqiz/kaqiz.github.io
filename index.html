@@ -146,6 +146,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于Docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/26/%E5%85%B3%E4%BA%8EDocker/">关于Docker</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/26/%E5%85%B3%E4%BA%8EDocker/" class="archive-article-date">
+  	<time datetime="2021-07-26T07:52:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Docker-DockerCompose-K8s（三个阶段）"><a href="#Docker-DockerCompose-K8s（三个阶段）" class="headerlink" title="Docker DockerCompose  K8s（三个阶段）"></a>Docker DockerCompose  K8s（三个阶段）</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/26/%E5%85%B3%E4%BA%8EDocker/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-golang并发编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -267,7 +340,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yjf512/p/6132868.html">golang汇编入门</a></p>
+        <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yjf512/p/6132868.html">golang汇编入门</a><br><a target="_blank" rel="noopener" href="http://topgoer.cn/docs/gopkg/gopkg-1d2uem0lbqc4t">http://topgoer.cn/docs/gopkg/gopkg-1d2uem0lbqc4t</a> (写的很好！！)</p>
 <p>这个””. 代表的是这个函数的命名空间。<br>FP寄存器，FP是frame pointer，是指向<code>栈底</code><br>SP是指向<code>栈顶</code><br>FUNCDATA是golang编译器自带的指令，plan9和x86的指令集都是没有的。它用来给gc收集进行提示。提示0和1是用于局部函数调用参数，需要进行回收<br>BX是一个临时寄存器，那么上面的句子是代表把FP＋8这个位置的数据（参数p），保存到BX中。FP+8代表什么呢，按照上面的图，代表的是参数</p>
 
       
@@ -784,76 +857,6 @@
 
 
   
-    <article id="post-关于Raft" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/06/%E5%85%B3%E4%BA%8ERaft/">关于Raft</a>
-    </h1>
-  
-
-        
-        <a href="/2021/07/06/%E5%85%B3%E4%BA%8ERaft/" class="archive-article-date">
-  	<time datetime="2021-07-06T06:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013970991/article/details/76602213">https://blog.csdn.net/u013970991/article/details/76602213</a><br>动画演示（Very good！！）  <a target="_blank" rel="noopener" href="http://thesecretlivesofdata.com/raft/">http://thesecretlivesofdata.com/raft/</a>  </p>
-<p>先进行日志同步，半数ok后再集体提交，如果得不到半数，领导者也无法提交</p>
-<p>脑裂的时候，以任期号更新的为准，之前的会进行回滚然后匹配新领导者的日志</p>
-<p>term任期号</p>
-<h1 id="Cap理论"><a href="#Cap理论" class="headerlink" title="Cap理论"></a>Cap理论</h1><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/54105974">https://www.zhihu.com/question/54105974</a></p>
-<h1 id="网络分区"><a href="#网络分区" class="headerlink" title="网络分区"></a>网络分区</h1><p>比如，我们的分布式存储系统有 A、B 两个节点。那么，当 A、B 之间由于可能路由器、交换机等底层网络设备出现了故障，A 和 B 通信出现了问题，但是 A、B 依然都在运行，都在对外提供服务。这时候，就说 A 和 B 发生了分区。</p>
-<h1 id="3个rpc"><a href="#3个rpc" class="headerlink" title="3个rpc"></a>3个rpc</h1><p>候选人 -&gt;  跟随人（选举投票Rpc）</p>
-<p>领导者 -&gt; 跟随人</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/06/%E5%85%B3%E4%BA%8ERaft/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -980,6 +983,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">汇编</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
             
             <div class="clearfix"></div>
