@@ -300,7 +300,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="关于Go的各种IO库"><a href="#关于Go的各种IO库" class="headerlink" title="关于Go的各种IO库"></a>关于Go的各种IO库</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/TtN6NZ8hQ2AIf0C8wVzkjA">https://mp.weixin.qq.com/s/TtN6NZ8hQ2AIf0C8wVzkjA</a></p>
-<h2 id="ioutil库"><a href="#ioutil库" class="headerlink" title="ioutil库"></a>ioutil库</h2><p>ReadAll、ReadFile、WriteFile、ReadDir  一次性都读完</p>
+<h2 id="ioutil库"><a href="#ioutil库" class="headerlink" title="ioutil库"></a>ioutil库</h2><p>ReadAll、ReadFile、WriteFile、ReadDir  一次性都读完<br><code>ReadAll</code>是以Eof或error作为分界的，在socket里面的conn里如果客户端不断是读不了的！！！！（大坑）</p>
 <h2 id="bufio库"><a href="#bufio库" class="headerlink" title="bufio库"></a>bufio库</h2><p>可以实现一行一行读，减小内存负担</p>
 
       
