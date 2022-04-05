@@ -146,44 +146,38 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-etcd总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于分布式事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/28/etcd%E6%80%BB%E7%BB%93/">etcd总结</a>
+      <a class="article-title" href="/2021/07/21/%E5%85%B3%E4%BA%8E%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">关于分布式事务</a>
     </h1>
   
 
         
-        <a href="/2021/06/28/etcd%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-06-28T06:34:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-28</time>
+        <a href="/2021/07/21/%E5%85%B3%E4%BA%8E%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
+  	<time datetime="2021-07-21T06:36:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="etcd"><a href="#etcd" class="headerlink" title="etcd"></a>etcd</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CK4y127Lj?t=19">https://www.bilibili.com/video/BV1CK4y127Lj?t=19</a><br><a target="_blank" rel="noopener" href="https://hardcore.feishu.cn/docs/doccnMRVFcMWn1zsEYBrbsDf8De#">https://hardcore.feishu.cn/docs/doccnMRVFcMWn1zsEYBrbsDf8De#</a><br>入门 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/96428375">https://zhuanlan.zhihu.com/p/96428375</a></p>
-<p><a target="_blank" rel="noopener" href="https://blueskykong.blog.csdn.net/article/details/110251835">https://blueskykong.blog.csdn.net/article/details/110251835</a>  写的很好！！！</p>
-<h2 id="etcd与redis的区别"><a href="#etcd与redis的区别" class="headerlink" title="etcd与redis的区别"></a>etcd与redis的区别</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhonglg3/article/details/106216306/">https://blog.csdn.net/zhonglg3/article/details/106216306/</a></p>
-<h2 id="etcd实现服务注册"><a href="#etcd实现服务注册" class="headerlink" title="etcd实现服务注册"></a>etcd实现服务注册</h2><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020944777">https://segmentfault.com/a/1190000020944777</a>  (rpc的)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/letian0805/article/details/72862354">https://blog.csdn.net/letian0805/article/details/72862354</a>  <code>(grpc的)</code></p>
-<h2 id="一个系列-https-mp-weixin-qq-com-mp-appmsgalbum-biz-MzU1OTIzOTE0Mw-amp-action-getalbum-amp-album-id-1346747532856311809-amp-scene-173-amp-from-msgid-2247484327-amp-from-itemidx-1-amp-count-3-amp-nolastread-1-wechat-redirect"><a href="#一个系列-https-mp-weixin-qq-com-mp-appmsgalbum-biz-MzU1OTIzOTE0Mw-amp-action-getalbum-amp-album-id-1346747532856311809-amp-scene-173-amp-from-msgid-2247484327-amp-from-itemidx-1-amp-count-3-amp-nolastread-1-wechat-redirect" class="headerlink" title="一个系列 https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU1OTIzOTE0Mw==&amp;action=getalbum&amp;album_id=1346747532856311809&amp;scene=173&amp;from_msgid=2247484327&amp;from_itemidx=1&amp;count=3&amp;nolastread=1#wechat_redirect"></a>一个系列 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU1OTIzOTE0Mw==&amp;action=getalbum&amp;album_id=1346747532856311809&amp;scene=173&amp;from_msgid=2247484327&amp;from_itemidx=1&amp;count=3&amp;nolastread=1#wechat_redirect">https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU1OTIzOTE0Mw==&amp;action=getalbum&amp;album_id=1346747532856311809&amp;scene=173&amp;from_msgid=2247484327&amp;from_itemidx=1&amp;count=3&amp;nolastread=1#wechat_redirect</a></h2><h1 id="go-micro-封装"><a href="#go-micro-封装" class="headerlink" title="go-micro 封装"></a>go-micro 封装</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44540711/article/details/108723076?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-1&amp;spm=1001.2101.3001.4242">https://blog.csdn.net/weixin_44540711/article/details/108723076?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-1&amp;spm=1001.2101.3001.4242</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/mario08/article/details/111163883">https://blog.csdn.net/mario08/article/details/111163883</a></p>
-<h1 id="etcd本身是个分布式KV，也就是说raft算法实际应用在etcd的集群之中？（个人理解）"><a href="#etcd本身是个分布式KV，也就是说raft算法实际应用在etcd的集群之中？（个人理解）" class="headerlink" title="etcd本身是个分布式KV，也就是说raft算法实际应用在etcd的集群之中？（个人理解）"></a><code>etcd本身是个分布式KV，也就是说raft算法实际应用在etcd的集群之中？（个人理解）</code></h1><h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><p>3.1 etcd 概念词汇表<br>下文的安装实践可能会涉及到 etcd 相关的概念词汇，因此我们首先了解下 etcd 的概念词汇表，以便于下文的理解。</p>
-<p>Raft：分布式一致性算法；</p>
-<p>Node：Raft 状态机实例；</p>
-<p><code>Member</code>：管理着 Node 的 <code>etcd 实例</code>，为客户端请求提供服务；</p>
-<p>Cluster：etcd 集群，由多个 Member 构成；</p>
-<p>Peer：同一个 etcd 集群中的另一个 Member；</p>
-<p>Client：客户端，向 etcd 发送 HTTP 请求；</p>
-<p><code>WAL</code>：持久化存储的日志格式，<code>预写式日志</code>；</p>
-<p>Snapshot：etcd 数据快照，防止 WAL 文件过多而设置的快照。</p>
-<h2 id="续租"><a href="#续租" class="headerlink" title="续租"></a>续租</h2><h2 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h2><p>Watch 机制<code>实时获取</code> etcd 中的增量数据更新，以使数据与 etcd 同步。</p>
-<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><p>分布式集群一般由<code>奇数个</code>节点组成，etcd 同样也是，<code>多个 etcd 节点通过 Raft 算法相互协作。</code></p>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>默认启动只在127.0.0.1 </p>
+        <ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/387487859">分布式事务简介</a></li>
+<li>分布式事务模式<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/384756957">XA事务模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/385594256">SAGA事务模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/388357329">TCC事务模式</a></li>
+<li>可靠消息事务模式</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/388444465">子事务屏障</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/yedf/dtm/blob/main/protocol.md">通信协议</a></li>
+</ul>
 
       
 
@@ -192,22 +186,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">etce</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/28/etcd%E6%80%BB%E7%BB%93/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/21/%E5%85%B3%E4%BA%8E%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">展开全文 >></a>
         </p>
       
 
@@ -237,31 +220,27 @@
 
 
   
-    <article id="post-数据结构要饭之路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于熔断" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">数据结构要饭之路</a>
+      <a class="article-title" href="/2021/07/20/%E5%85%B3%E4%BA%8E%E7%86%94%E6%96%AD/">关于熔断</a>
     </h1>
   
 
         
-        <a href="/2021/06/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/" class="archive-article-date">
-  	<time datetime="2021-06-25T16:07:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-26</time>
+        <a href="/2021/07/20/%E5%85%B3%E4%BA%8E%E7%86%94%E6%96%AD/" class="archive-article-date">
+  	<time datetime="2021-07-20T11:13:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="数据结构可视化学习网站"><a href="#数据结构可视化学习网站" class="headerlink" title="数据结构可视化学习网站"></a>数据结构可视化学习网站</h2><p><a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html">https://www.cs.usfca.edu/~galles/visualization/Algorithms.html</a></p>
-<h2 id="关于红黑树（红黑树也是二叉树，深度太大了所以不用做数据库索引）"><a href="#关于红黑树（红黑树也是二叉树，深度太大了所以不用做数据库索引）" class="headerlink" title="关于红黑树（红黑树也是二叉树，深度太大了所以不用做数据库索引）"></a>关于红黑树（<code>红黑树也是二叉树，深度太大了所以不用做数据库索引</code>）</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_17308321/article/details/90741493">https://blog.csdn.net/qq_17308321/article/details/90741493</a> (写的很好)<br> <a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/RedBlack.html">实验动画</a>  </p>
-<h3 id="5个原则"><a href="#5个原则" class="headerlink" title="5个原则"></a><code>5个原则</code></h3><p>1、所有节点的颜色不是红色就是黑色。<br>2、<code>根节点是黑色。  </code><br>3、每个<code>叶子节点</code>都是<code>黑色</code>的<code>空节点</code>(nil)。<br>4、每个<code>红色节点的两个子节点都是黑色</code>。(即从每个叶子到根节点的所有路径上<code>不能有两个连续的红色节点</code>)<br>5、<code>从任一节点到其叶子节点的所有路径上都包含相同数目的黑节点</code>。</p>
-<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a><code>操作</code></h3><p><code>变色</code><br><code>左旋转</code>（结构调整，调整完<code>树的性质不能变</code>）<br><code>右旋转</code></p>
-<h3 id="关于插入（5种插入情况，每次插的节点都是红的）"><a href="#关于插入（5种插入情况，每次插的节点都是红的）" class="headerlink" title="关于插入（5种插入情况，每次插的节点都是红的）  "></a><code>关于插入（5种插入情况，每次插的节点都是红的）  </code></h3><p>由于<code>性质5</code>的约束，<code>每次插入的节点颜色必然为红色。</code>（可以把红色想成不稳定态，即万恶之源，黑色为稳定态）<br>空树<br>插入的父节点为黑色（直接插，完美）<br>插入的父节点为红色（复杂）<br>1.黑红红（一个方向），变色+一次旋转（<code>变色和旋转的顺序应该可以颠倒，不重要</code>)<br>2、黑红红（黑的右边还有红）多次变色（<code>要进行递归，这种情况</code>）（<code>父节点变黑，爷爷节点变红，若父节点为根节点直接变父节点为黑色,不然还是红的</code>）<br>3.黑红红（两个方向），旋转一次变成第一种情况，之后变色再加一次旋转</p>
+        <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/5UKIzlQmOoPjf6M2hjPOzQ">https://mp.weixin.qq.com/s/5UKIzlQmOoPjf6M2hjPOzQ</a></p>
 
       
 
@@ -270,26 +249,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/20/%E5%85%B3%E4%BA%8E%E7%86%94%E6%96%AD/">展开全文 >></a>
         </p>
       
 
@@ -319,84 +283,27 @@
 
 
   
-    <article id="post-Golang要饭之路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于epoll" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/25/Golang%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">Golang要饭之路</a>
+      <a class="article-title" href="/2021/07/19/%E5%85%B3%E4%BA%8Eepoll/">关于epoll</a>
     </h1>
   
 
         
-        <a href="/2021/06/25/Golang%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/" class="archive-article-date">
-  	<time datetime="2021-06-25T14:12:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-25</time>
+        <a href="/2021/07/19/%E5%85%B3%E4%BA%8Eepoll/" class="archive-article-date">
+  	<time datetime="2021-07-19T07:01:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Golang-要饭之路"><a href="#Golang-要饭之路" class="headerlink" title="Golang 要饭之路"></a>Golang 要饭之路</h1><h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/0sjLD4_12Ql0QeWsO_A5pQ">https://mp.weixin.qq.com/s/0sjLD4_12Ql0QeWsO_A5pQ</a>  </p>
-<h3 id="哈希桶（Bucket），就是拉链法"><a href="#哈希桶（Bucket），就是拉链法" class="headerlink" title="哈希桶（Bucket），就是拉链法"></a>哈希桶（Bucket），就是拉链法</h3><p>一个Hash表里面有很多<code>Bucket（桶）</code>，可以理解为单位的存储空间</p>
-<h3 id="扩容（负载因子）"><a href="#扩容（负载因子）" class="headerlink" title="扩容（负载因子）"></a>扩容（负载因子）</h3><p>负载因子定义： count（存储键值对的数目）/m（桶数目的数量）<br>先开辟更多的痛，然后要把旧桶的数据迁移到新桶<br>要记录旧桶在哪，迁移到哪  </p>
-<h4 id="一次性扩容-与-渐进式扩容"><a href="#一次性扩容-与-渐进式扩容" class="headerlink" title="一次性扩容 与 渐进式扩容"></a>一次性扩容 与 渐进式扩容</h4><p>一般渐进式扩容更常见（因此用nevacuate记录下一个要被迁移的旧桶编号）  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">buckets    unsafe.Pointer // 常规桶起始地址  </span><br><span class="line">oldbuckets unsafe.Pointer // 扩容时保存原来常规桶的地  </span><br></pre></td></tr></table></figure>
-
-
-<h3 id="hmap与bmap（桶）"><a href="#hmap与bmap（桶）" class="headerlink" title="hmap与bmap（桶）"></a>hmap与bmap（桶）</h3><p>tophash（高八位）<br>overflow（溢出桶,就是备用桶。<code>如果一个桶里放的元素超过了8个，则需要溢出桶，采用拉链缝上去，bmap最后的overflow就是干这件事情的</code>）<br><code>每个桶里可以存储8个键值对</code>，并且为了内存使用更加紧凑，<code>8个键放一起</code>，<code>8个值放一起</code>。对应每个key<code>只保存</code>其哈希值的高8位（tophash）。<br>而每个键值对的tophash、key和value的索引顺序一一对应。<br><code>extra字段</code>指向一个<code>mapextra结构体</code>，里面记录的都是<code>溢出桶</code>相关的信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">type mapextra struct &#123;</span><br><span class="line">    overflow    *[]*bmap //把已经用到的溢出桶链起来</span><br><span class="line">    oldoverflow *[]*bmap //渐进式扩容时，保存旧桶用到的溢出桶</span><br><span class="line">    nextOverflow *bmap   //下一个尚未使用的溢出桶</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Go语言中可以通过“==”来比较是否相等的类型，都可以作为map的key类型。(换言之不能用”==”来比较的类型就不能装入map当中)  </p>
-<h3 id="扩容规则"><a href="#扩容规则" class="headerlink" title="扩容规则"></a>扩容规则</h3><p>默认是6.5  </p>
-<p>大于6.5的时候开辟2倍的空间，分配新桶数目是旧桶的2倍，hmap.oldbuckets指向旧桶，hmap.buckets指向新桶。hmap.nevacuate为0，表示接下来要迁移编号为0的旧桶。</p>
-<h4 id="等量扩容"><a href="#等量扩容" class="headerlink" title="等量扩容"></a>等量扩容</h4><p><code>就是创建和旧桶数目一样多的新桶，然后把原来的键值对迁移到新桶中(类似于位置重排)</code>  </p>
-<p>如果没有超过设置的负载因子上限，<code>但是使用的溢出桶较多，也会触发扩容</code>，不过这一次是等量扩容。（<code>有很多键值对被删除的情况</code>）<br>这种情况下，如果把这些键值对重新安排到等量的新桶中，虽然哈希值没变，常规桶数目没变，每个键值对还是会选择与旧桶一样的新桶编号，但是能够存储的更加紧凑，进而减少溢出桶的使用。</p>
-<h2 id="不可寻址"><a href="#不可寻址" class="headerlink" title="不可寻址"></a>不可寻址</h2><p>正是因为扩容过程中会发生键值对迁移，键值对的地址也会发生改变，所以才说map的元素是不可寻址的，如果要取一个<code>value</code>的地址则不能通过编译。  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//k := &amp;a[&quot;k1&quot;]会在编译阶段出错</span><br></pre></td></tr></table></figure>
-
-<h2 id="for-range-map的输出的无序的"><a href="#for-range-map的输出的无序的" class="headerlink" title="for range map的输出的无序的"></a><code>for range map的输出的无序的</code></h2><p>成倍扩容迫使元素顺序变化<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/github_38773259/article/details/114362871?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">整个的一个总结（写的很好)</a></p>
-<h2 id="golang-map里的value是不可寻址的-是一个不可改的只读的值引用，直接存结构体是不能修改的"><a href="#golang-map里的value是不可寻址的-是一个不可改的只读的值引用，直接存结构体是不能修改的" class="headerlink" title="golang map里的value是不可寻址的(是一个不可改的只读的值引用，直接存结构体是不能修改的)"></a>golang map里的value是不可寻址的(是一个不可改的只读的值引用，直接存结构体是不能修改的)</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43851310/article/details/89606103">https://blog.csdn.net/weixin_43851310/article/details/89606103</a><br><a target="_blank" rel="noopener" href="https://www.kancloud.cn/aceld/golang/1958315">刘丹冰博客中的解释</a></p>
-<hr>
-<h1 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h1><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c8a5e7cc5851">https://www.jianshu.com/p/c8a5e7cc5851</a></p>
-<hr>
-<h1 id="元数据"><a href="#元数据" class="headerlink" title="元数据"></a>元数据</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=1&amp;sn=e74a2e2fdb460db7b9a81e8f03b75db2&amp;scene=19#wechat_redirect">https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=1&amp;sn=e74a2e2fdb460db7b9a81e8f03b75db2&amp;scene=19#wechat_redirect</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">type _type struct &#123;</span><br><span class="line">    size       uintptr</span><br><span class="line">    ptrdata    uintptr</span><br><span class="line">    hash       uint32</span><br><span class="line">    tflag      tflag</span><br><span class="line">    align      uint8</span><br><span class="line">    fieldalign uint8</span><br><span class="line">    kind       uint8</span><br><span class="line">    alg        *typeAlg</span><br><span class="line">    gcdata     *byte</span><br><span class="line">    str        nameOff</span><br><span class="line">    ptrToThis  typeOff</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在_type之后存储的是各类型<code>额外需要描述的信息</code>，例如slice的类型元数据在_type结构体后面，记录着一个*_type，指向其存储的元素的类型元数据。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">type MyType1 = int32 //别名</span><br><span class="line">type MyType2 int32 //新建了一个新类型</span><br></pre></td></tr></table></figure>
-<p>然而如果是<code>自定义类型</code>，这后面还会有一个uncommontype结构体。(<code>比自定义多一个</code>)</p>
-<hr>
-<h1 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=2&amp;sn=0363c7102943888e0f390f3f5a9ae662&amp;scene=19#wechat_redirect">https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=2&amp;sn=0363c7102943888e0f390f3f5a9ae662&amp;scene=19#wechat_redirect</a></p>
-<h2 id="空接口"><a href="#空接口" class="headerlink" title="空接口"></a>空接口</h2><p>空接口类型可以接收<code>任意类型</code>的数据，它只要记录<code>这个数据在哪儿，是什么类型的就足够了。(不需要记录值！！！)</code><br>空接口变量数据结构如下，其中_type指向接口的动态类型元数据，data就指向接口的动态值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type eface struct &#123;</span><br><span class="line">    _type *_type //指向的是对应类型的元数据</span><br><span class="line">    data  unsafe.Pointer //指向赋值对象本身,就是个指针</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="非空接口"><a href="#非空接口" class="headerlink" title="非空接口"></a>非空接口</h2><p>非空接口就是<code>有方法列表</code>的接口类型，一个变量要想赋值给一个非空接口类型，其类型必须要实现该接口要求的<code>所有方法</code>才行。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type iface struct &#123;</span><br><span class="line">    tab   *itab</span><br><span class="line">    data  unsafe.Pointer</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">type itab struct &#123;</span><br><span class="line">    inter  *interfacetype //是interface的类型元数据，它里面记录了这个接口类型的描述信息，接口要求的方法列表就记录在interfacetype.mhdr这里。</span><br><span class="line">    _type  *_type</span><br><span class="line">    hash   uint32 // itab.hash是从itab._type中拷贝来的，是类型的哈希值，用于快速判断类型是否相等时使用。</span><br><span class="line">    _      [4]byte</span><br><span class="line">    fun    [1]uintptr //记录的是动态类型实现的那些接口要求的方法的地址，是从方法元数据中拷贝来的，为的是快速定位到方法。如果itab._type对应的类型没有实现这个接口，则itab.fun[0]=0，这在类型断言时会用到。</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">type interfacetype struct &#123;</span><br><span class="line">    typ      _type</span><br><span class="line">    pkgpath  name</span><br><span class="line">    mhdr     []imethod</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-<h2 id="关于itab的复用？？"><a href="#关于itab的复用？？" class="headerlink" title="关于itab的复用？？"></a>关于itab的复用？？</h2><p>实际上Go语言会把用到的itab结构体缓存起来，并且以&lt;接口类型, 动态类型&gt;组合为key，以*itab为value，构造一个哈希表，用于存储与查询itab信息。<br>如果能查询到对应的itab指针，就直接拿来使用。若没有就要再创建，然后添加到itabTable中。(<code>以后再次使用就不用创建了？？？</code>)</p>
-<h2 id="类型断言-判断当前interface指向的类型"><a href="#类型断言-判断当前interface指向的类型" class="headerlink" title="类型断言(判断当前interface指向的类型)"></a>类型断言(判断当前interface指向的类型)</h2><p>example <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/361231472">https://zhuanlan.zhihu.com/p/361231472</a><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=3&amp;sn=6b41278ef6ee7425865e67e00c4c078e&amp;scene=19#wechat_redirect">https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484072&amp;idx=3&amp;sn=6b41278ef6ee7425865e67e00c4c078e&amp;scene=19#wechat_redirect</a></p>
-<h2 id="interface类型转换（大多用于泛型的实现）"><a href="#interface类型转换（大多用于泛型的实现）" class="headerlink" title="interface类型转换（大多用于泛型的实现）"></a>interface类型转换（大多用于泛型的实现）</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c87c6a0c4acb">https://www.jianshu.com/p/c87c6a0c4acb</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39535701/article/details/111168060">一些关于interface的坑</a></p>
-<h1 id="关于GC"><a href="#关于GC" class="headerlink" title="关于GC"></a>关于GC</h1><p><code>(个人理解，GC也是一个线程，在主线程跑完之后跟着跑跟着回收？）</code><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484496&amp;idx=1&amp;sn=c7555433941ff4698f1cc7fcb2a5fedd&amp;scene=19#wechat_redirect">https://mp.weixin.qq.com/s?__biz=Mzg5NjIwNzIxNQ==&amp;mid=2247484496&amp;idx=1&amp;sn=c7555433941ff4698f1cc7fcb2a5fedd&amp;scene=19#wechat_redirect</a><br>可达性理论基础 （堆区的数据如果后续会用到的话一定会在<code>数据区和堆区</code>追踪到，四个区，（<code>从上到下</code>分别是 <code>栈区，堆区，数据区，代码区</code>）</p>
-<h2 id="STW"><a href="#STW" class="headerlink" title="STW"></a>STW</h2><p><code>暂停的时候计算出所有的可达关系</code><br>程序要执行的指令在代码段，<br>全局变量、静态数据等都会分配在<code>数据段</code>。<br>而<code>函数</code>的局部变量、参数和返回值都可以在函数栈帧中找到。<br>分代回收（认为新生代的对象比老对象容易死的多，因此可以双标处理）<br>引用计数（循环引用会出现问题，两个都回收不了）<br>清除标记法（需要STW）</p>
-<h2 id="三色标记（为了解决STW）"><a href="#三色标记（为了解决STW）" class="headerlink" title="三色标记（为了解决STW）"></a>三色标记（为了解决STW）</h2><p><code>动态</code>执行，直到<code>没有灰色结点</code><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/62000722/answer/193462425">https://www.zhihu.com/question/62000722/answer/193462425</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/62000722/answer/1424800807">https://www.zhihu.com/question/62000722/answer/1424800807</a></p>
-<h2 id="三色标记的问题"><a href="#三色标记的问题" class="headerlink" title="三色标记的问题"></a>三色标记的问题</h2><p>程序是并行运行的  </p>
-<h2 id="增量式垃圾回收"><a href="#增量式垃圾回收" class="headerlink" title="增量式垃圾回收"></a>增量式垃圾回收</h2><p>三色标记（<code>黑色到白色会出现问题（如果灰色也到不了白色的话），两个条件同时满足</code>）<br>强三色不变式 （插入写屏障）  <code>强制不允许</code>黑色指向白色<br>弱三色不变式 （删除写屏障）  </p>
-<p>屏障：类似于Hook，在XX操作的时候做点事情<br>（插入写屏障）对象被<code>引用</code>时触发的机制 （添加下游对象，<code>下游对象全部为灰色</code>）<br><code>堆</code>启用插入屏障,<code>栈</code>在最后之前用STW（短暂的STW）(如果栈中黑色结点调用白色就需要短暂的STW，在清除白色对象之前开启STW)  </p>
-<p>（删除写屏障）对象被<code>删除</code>时触发的机制（被删除时，如果自身为白色或者灰色，那么被标记为灰色（可以多活过一轮））<br>缺点：回收精度低<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/krock/p/14409225.html">https://www.cnblogs.com/krock/p/14409225.html</a> (Java的例子，比较好懂)  </p>
-<h2 id="并行垃圾回收"><a href="#并行垃圾回收" class="headerlink" title="并行垃圾回收"></a>并行垃圾回收</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Go的垃圾回收官方形容为 非分代 非紧缩 写屏障 并发标记清理。<br>非分代是golang GC区别于JVM GC分代模型的特点；<br><code>非紧缩意味着在回收垃圾的过程中，不需要像复制算法那样移动内存中的对象，这样避免STW过长；</code><br>标记清理算法的字面解释，就是将可达的内存块进行标记mark，最后没有标记的不可达内存块将进行清理sweep；<br>Golang中实现标记功能的算法就是三色标记法，<br>Golang里面三色标记法会造成<code>错标</code>问题，使用写屏障来解决这种问题，而JVM里面的CMS和G1解决错标或者漏标问题的算法分别是Increment Update和SATB</p>
-<h1 id="关于defer"><a href="#关于defer" class="headerlink" title="关于defer"></a>关于defer</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hv411x7we?p=9">https://www.bilibili.com/video/BV1hv411x7we?p=9</a>  </p>
-<h1 id="关于recover"><a href="#关于recover" class="headerlink" title="关于recover"></a>关于recover</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/kingmax54212008/article/details/78142981/">一个example</a><br>golang发出panic的话程序是一定要GG的，但是如果在panic之前写一个defer函数的话(<code>recover必须配合defer，不然没用</code>），那么就可以把panic给捕获，实现一种类似try，catch的效果（虽然我觉得不是很像）</p>
-<h1 id="关于Context"><a href="#关于Context" class="headerlink" title="关于Context"></a>关于Context</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/luolianxi/article/details/105455389">example</a><br>可以更方便的关闭goroutine<br>可以关闭goroutine派生出来的goroutine  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">func TestOutput(t *testing.T) &#123;</span><br><span class="line">	ctx, cancel := context.WithCancel(context.Background())</span><br><span class="line">	go func() &#123;</span><br><span class="line">		for&#123;</span><br><span class="line">			select &#123;</span><br><span class="line">			case &lt;-ctx.Done():</span><br><span class="line">				fmt.Println(&quot;退出携程&quot;)</span><br><span class="line">				return</span><br><span class="line">			default:</span><br><span class="line">				fmt.Println(&quot;监控01&quot;)</span><br><span class="line">				time.Sleep(1*time.Second)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line"> </span><br><span class="line">	time.Sleep(5*time.Second)</span><br><span class="line">	cancel()</span><br><span class="line">	time.Sleep(2*time.Second)</span><br><span class="line">	fmt.Println(&quot;退出程序&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">=== RUN   TestOutput</span><br><span class="line">监控01</span><br><span class="line">监控01</span><br><span class="line">监控01</span><br><span class="line">监控01</span><br><span class="line">监控01</span><br><span class="line">退出协程 (可以自由的让程序退出)</span><br><span class="line">退出程序</span><br></pre></td></tr></table></figure>
-
-<h1 id="关于Channel"><a href="#关于Channel" class="headerlink" title="关于Channel"></a>关于Channel</h1><p>给一个 <code>nil</code> channel 发送数据，造成永远阻塞</p>
-<p>从一个 <code>nil</code> channel 接收数据，造成永远阻塞</p>
-<p> 给一个已经<code>关闭</code>的 channel 发送数据，引起 panic</p>
-<p>从一个已经<code>关闭</code>的 channel 接收数据，如果缓冲区中为空，则返回一个<code>零值</code></p>
-<p>有<code>方向</code>的 channel 不可以被关闭</p>
+        <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg3NTU3OTgxOA==&amp;mid=2247489347&amp;idx=1&amp;sn=e897fd2f3584fe0fe0c011d4e6503274">https://mp.weixin.qq.com/s?__biz=Mzg3NTU3OTgxOA==&amp;mid=2247489347&amp;idx=1&amp;sn=e897fd2f3584fe0fe0c011d4e6503274</a> 关于fd<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/GEoG23wz2JfQQQ9MgoM8tg">https://mp.weixin.qq.com/s/GEoG23wz2JfQQQ9MgoM8tg</a> 关于epoll<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/7pp3_XdJoffrw9dxoCmnSw">https://mp.weixin.qq.com/s/7pp3_XdJoffrw9dxoCmnSw</a>  eventfd</p>
 
       
 
@@ -405,22 +312,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/25/Golang%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/19/%E5%85%B3%E4%BA%8Eepoll/">展开全文 >></a>
         </p>
       
 
@@ -450,68 +346,27 @@
 
 
   
-    <article id="post-Redis要饭之路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Remotion业余钻研" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">Redis要饭之路</a>
+      <a class="article-title" href="/2021/07/18/Remotion%E4%B8%9A%E4%BD%99%E9%92%BB%E7%A0%94/">Remotion业余钻研（React做视频的一个东西）</a>
     </h1>
   
 
         
-        <a href="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/" class="archive-article-date">
-  	<time datetime="2021-06-25T11:52:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-25</time>
+        <a href="/2021/07/18/Remotion%E4%B8%9A%E4%BD%99%E9%92%BB%E7%A0%94/" class="archive-article-date">
+  	<time datetime="2021-07-18T12:42:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzkzMDI1NjcyOQ==&mid=2247487752&idx=1&sn=72a1725e1c86bb5e883dd8444e5bd6c4&source=41#wechat_redirect">一个系列</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhaoliang831214/article/details/82051449">几个图不错</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dc8d4c230b28?from=groupmessage">https://www.jianshu.com/p/dc8d4c230b28?from=groupmessage</a><br>[redis底层数据结构] (<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ysocean/p/9080942.html)%E8%BF%99%E4%B8%AA%E7%B3%BB%E5%88%97%E5%BE%88%E5%A5%BD%EF%BC%81%EF%BC%81%EF%BC%81%E4%B8%80%E5%85%B113%E8%8A%82">https://www.cnblogs.com/ysocean/p/9080942.html)这个系列很好！！！一共13节</a><br>[面霸总结]<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ksvCNuYBEvWm9OYQsDOF_g">https://mp.weixin.qq.com/s/ksvCNuYBEvWm9OYQsDOF_g</a></p>
-<h2 id="redis的数据结构"><a href="#redis的数据结构" class="headerlink" title="redis的数据结构"></a>redis的数据结构</h2><p><img src="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" alt="avatar"><br><img src="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/%E5%86%85%E9%83%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" alt="avatar"></p>
-<h3 id="Redis底层结构"><a href="#Redis底层结构" class="headerlink" title="Redis底层结构"></a>Redis底层结构</h3><h3 id="跳跃表（有点像分块）"><a href="#跳跃表（有点像分块）" class="headerlink" title="跳跃表（有点像分块）"></a><code>跳跃表（有点像分块）</code></h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c2841d65df4c%EF%BC%88%E8%AF%A6%E8%A7%A3%EF%BC%89">https://www.jianshu.com/p/c2841d65df4c（详解）</a><br>　　跳跃表（skiplist）是一种有序数据结构，它通过在每个节点中维持多个指向其它节点的指针，从而达到快速访问节点的目的。具有如下性质：</p>
-<p>　　1、由很多层结构组成；  </p>
-<p>　　2、每一层都是一个有序的链表，排列顺序为由高层到底层，都至少包含两个链表节点，分别是前面的head节点和后面的nil节点；  </p>
-<p>　　3、最底层的链表包含了所有的元素；  </p>
-<p>　　4、如果一个元素出现在某一层的链表中，那么在该层之下的链表也全都会出现（上一层的元素是当前层的元素的子集）；  </p>
-<p>　　5、链表中的每个节点都包含两个指针，一个指向同一层的下一个链表节点，另一个指向下一层的同一个链表节点；<br><img src="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/%E8%B7%B3%E8%B7%83%E8%A1%A8.png" alt="avatar"></p>
-<h3 id="压缩列表（ZipList，为了节约内存）"><a href="#压缩列表（ZipList，为了节约内存）" class="headerlink" title="压缩列表（ZipList，为了节约内存）"></a>压缩列表（ZipList，为了节约内存）</h3><p><code>压缩列表的原理：压缩列表并不是对数据利用某种算法进行压缩，而是将数据按照一定规则编码在一块连续的内存区域，目的是节省内存。</code><br>详细原理<a target="_blank" rel="noopener" href="https://blog.csdn.net/zgaoq/article/details/89710600">https://blog.csdn.net/zgaoq/article/details/89710600</a><br>ziplist是由一系列特殊编码的连续内存块组成的顺序存储结构，<code>类似于数组</code>，ziplist在内存中是连续存储的，<code>但是不同于数组</code>，为了节省内存 ziplist的每个元素所占的内存大小可以不同（数组中叫元素，ziplist叫<code>节点entry</code>，下文都用“节点”），每个节点可以用来存储一个整数或者一个字符串</p>
-<h2 id="QuickList"><a href="#QuickList" class="headerlink" title="QuickList"></a>QuickList</h2><p>后续版本对列表数据结构进行了改造，使用 quicklist 代替了 ziplist 和 linkedlist。<br>quicklist 是 ziplist 和 linkedlist 的混合体，它将 linkedlist 按段切分，每一段使用 ziplist 来紧凑存储，多个 ziplist 之间使用双向指针串接起来。<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hunternet/p/12624691.html">详解</a></p>
-<h3 id="Redis五种数据结构"><a href="#Redis五种数据结构" class="headerlink" title="Redis五种数据结构"></a>Redis五种数据结构</h3><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p><code>一对一</code><br>value可以是很多类型  </p>
-<h3 id="底层结构"><a href="#底层结构" class="headerlink" title="底层结构"></a><code>底层结构</code></h3><p>简单动态字符串（simple dynamic string,SDS）  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">struct sdshdr&#123;</span><br><span class="line">     //记录buf数组中已使用字节的数量</span><br><span class="line">     //等于 SDS 保存字符串的长度</span><br><span class="line">     int len;</span><br><span class="line">     //记录 buf 数组中未使用字节的数量</span><br><span class="line">     int free;</span><br><span class="line">     //字节数组，用于保存字符串</span><br><span class="line">     char buf[];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/SDS%E6%80%BB%E7%BB%93.png" alt="avatar"></p>
-<h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hunternet/p/12651530.html">https://www.cnblogs.com/hunternet/p/12651530.html</a><br>就是一个可以一对多（比如结构体)的数据结构  </p>
-<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typedef  struct listNode&#123;</span><br><span class="line">       //前置节点</span><br><span class="line">       struct listNode *prev;</span><br><span class="line">       //后置节点</span><br><span class="line">       struct listNode *next;</span><br><span class="line">       //节点的值</span><br><span class="line">       void *value;  </span><br><span class="line">&#125;listNode</span><br></pre></td></tr></table></figure>
-<pre><code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    typedef struct list&#123;</span><br><span class="line">     //表头节点</span><br><span class="line">     listNode *head;</span><br><span class="line">     //表尾节点</span><br><span class="line">     listNode *tail;</span><br><span class="line">     //链表所包含的节点数量</span><br><span class="line">     unsignedlong len;</span><br><span class="line">     //节点值复制函数</span><br><span class="line">     void (*free) (void *ptr);</span><br><span class="line">     //节点值释放函数</span><br><span class="line">     void (*free) (void *ptr);</span><br><span class="line">     //节点值对比函数</span><br><span class="line">     int (*match) (void *ptr,void *key);</span><br><span class="line">&#125;list;</span><br></pre></td></tr></table></figure>
-</code></pre>
-<p>　　Redis链表特性：  </p>
-<p>　　①、双端：链表具有前置节点和后置节点的引用，获取这两个节点时间复杂度都为O(1)。</p>
-<p>　　②、<code>无环</code>：表头节点的 prev 指针和表尾节点的 next 指针都指向 NULL,对链表的访问都是以 NULL 结束。　　</p>
-<p>　　③、带链表长度计数器：通过 len 属性获取链表长度的时间复杂度为 O(1)。</p>
-<p>　　④、多态：链表节点使用 void* 指针来保存节点值，可以保存各种不同类型的值</p>
-<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><h3 id="Sorted-Set"><a href="#Sorted-Set" class="headerlink" title="Sorted Set"></a>Sorted Set</h3><h3 id="Redis-Object"><a href="#Redis-Object" class="headerlink" title="Redis Object"></a>Redis Object</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ysocean/p/9102811.html">https://www.cnblogs.com/ysocean/p/9102811.html</a><br>Redis使用前面说的五大数据类型来表示键和值，每次在Redis数据库中创建一个键值对时，至少会创建两个对象，<code>一个是键对象，一个是值对象，</code>而Redis中的每个对象都是由 redisObject 结构来表示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">typedef struct redisObject&#123;</span><br><span class="line">     //类型</span><br><span class="line">     unsigned type:4;</span><br><span class="line">     //编码</span><br><span class="line">     unsigned encoding:4;</span><br><span class="line">     //指向底层数据结构的指针</span><br><span class="line">     void *ptr; //就是这个指针发散出去指向底层的数据结构</span><br><span class="line">     //引用计数</span><br><span class="line">     int refcount;</span><br><span class="line">     //记录最后一次被程序访问的时间</span><br><span class="line">     unsigned lru:22;</span><br><span class="line"> </span><br><span class="line">&#125;robj</span><br></pre></td></tr></table></figure>
-<h2 id="redis-设置过期时间（expire）"><a href="#redis-设置过期时间（expire）" class="headerlink" title="redis 设置过期时间（expire）"></a>redis 设置过期时间（expire）</h2><h3 id="定期删除"><a href="#定期删除" class="headerlink" title="定期删除"></a>定期删除</h3><p>redis默认是每隔 100ms 就随机抽取一些<code>设置了</code>过期时间的key，检查其是否过期，如果过期就删除。<br><code>注意这里是随机抽取的</code>。为什么要随机呢？你想一想假如 redis 存了几十万个 key ，每隔100ms就遍历所有的设置过期时间的 key 的话，就会给 CPU 带来很大的负载！ </p>
-<h3 id="惰性删除-手工删除"><a href="#惰性删除-手工删除" class="headerlink" title="惰性删除(手工删除)"></a>惰性删除(手工删除)</h3><p>定期删除可能会导致很多过期 key 到了时间并没有被删除掉。<br>所以就有了惰性删除。假如你的过期 key，靠定期删除没有被删除掉，还停留在内存里，除非你的系统去查一下那个 key，才会被redis给删除掉。这就是所谓的惰性删除，也是够懒的哈！</p>
-<h2 id="6种数据淘汰策略"><a href="#6种数据淘汰策略" class="headerlink" title="6种数据淘汰策略"></a>6种数据淘汰策略</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105587132">https://zhuanlan.zhihu.com/p/105587132</a></p>
-<h2 id="Redis默认会分为16个库（0-15）"><a href="#Redis默认会分为16个库（0-15）" class="headerlink" title="Redis默认会分为16个库（0-15）"></a>Redis默认会分为16个库（0-15）</h2><p>Redis 默认情况下会分为16个数据库（0-15），每个库存放不同的数据，<code>单个库的Key不能重复</code>  </p>
-<h2 id="redis-持久化机制"><a href="#redis-持久化机制" class="headerlink" title="redis 持久化机制"></a>redis 持久化机制</h2><h3 id="快照（snapshotting，RDB）"><a href="#快照（snapshotting，RDB）" class="headerlink" title="快照（snapshotting，RDB）"></a>快照（snapshotting，RDB）</h3><p>快照持久化是Redis默认采用的持久化方式  </p>
-<h3 id="只追加文件（append-only-file-AOF）"><a href="#只追加文件（append-only-file-AOF）" class="headerlink" title="只追加文件（append-only file,AOF）"></a>只追加文件（append-only file,AOF）</h3><p>与快照持久化相比，<code>AOF持久化的实时性更好</code>，因此已成为主流的持久化方案。<br>默认情况下Redis没有开启AOF（append only file）方式的持久化，可以通过appendonly参数开启：<br>Redis的配置文件中存在三种不同的 AOF 持久化方式:<br>为了兼顾数据和写入性能，用户可以考虑 appendfsync everysec选项 ，<code>让Redis每秒同步一次AOF文件</code>，Redis性能几乎没受到任何影响。<br>而且这样即使出现系统崩溃，<code>用户最多只会丢失一秒之内产生的数据</code>。当硬盘忙于执行写入操作的时候，Redis还会优雅的放慢自己的速度以便适应硬盘的最大写入速度。<br><code>Redis 4.0 开始支持 RDB 和 AOF 的混合持久化</code></p>
-<h2 id="redis-事务"><a href="#redis-事务" class="headerlink" title="redis 事务"></a>redis 事务</h2><p>MULTI、EXEC、WATCH<br>在 Redis 中，事务总是具有原子性（Atomicity)、一致性(Consistency)和隔离性（Isolation），并且当 Redis 运行在某种特定的持久化模式下时，事务也具有持久性（Durability）。</p>
-<h2 id="缓存击穿（某个热点Key在高并发的情况下刚好过期）"><a href="#缓存击穿（某个热点Key在高并发的情况下刚好过期）" class="headerlink" title="缓存击穿（某个热点Key在高并发的情况下刚好过期）"></a>缓存击穿（某个热点Key在高并发的情况下刚好过期）</h2><p>在redis里使用<code>分布式锁</code>，没锁就等待<br><code>软过期</code>，对热点Key异步的延迟时间</p>
-<h2 id="缓存雪崩（一堆key同时失效，比如redis重启）"><a href="#缓存雪崩（一堆key同时失效，比如redis重启）" class="headerlink" title="缓存雪崩（一堆key同时失效，比如redis重启）"></a>缓存雪崩（一堆key同时失效，比如redis重启）</h2><p>expire different time</p>
-<h2 id="缓存穿透-查的东西不存在，还查了好多次"><a href="#缓存穿透-查的东西不存在，还查了好多次" class="headerlink" title="缓存穿透(查的东西不存在，还查了好多次)"></a>缓存穿透(查的东西不存在，还查了好多次)</h2><p>使用<code>布隆过滤器</code><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zK4y1h7pA?from=search&amp;seid=2244055215877910203">https://www.bilibili.com/video/BV1zK4y1h7pA?from=search&amp;seid=2244055215877910203</a><br>多个哈希函数，<code>每个对应的都是1才表示存在,有一个不是1就当做不存在 </code><br>假设K个哈希函数，时间复杂度就是O(K)<br>可以通过增加哈希函数的数量和占用的空间大小来降低误差率<br>将所有可能存在的数据哈希到一个足够大的bitmap中，一个一定不存在的数据会被这个bitmap拦截掉，从而避免了对底层存储系统的查询压力。<br>另外也有一个<code>更为简单粗暴</code>的方法，如果一个查询返回的数据为空（不管是数据不存在，还是系统故障），我们<code>仍然把这个空结果</code>进行缓存，但它的过期时间会很短，最长不超过五分钟。</p>
-<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><p>reddison（redis官方的分布式锁解决方案）<br>golang结合redis实现<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zengxm/articles/12797981.html">https://www.cnblogs.com/zengxm/articles/12797981.html</a>（NX用Const转化了，在最后面）<br>uuid(唯一标识符)<br>redis里面的key是唯一的<br>set不存在则创建，存在则修改<br>setnx 不存在则创建返回1，存在则不需要进行任何操作（返回0）  </p>
-<h3 id="集群式分布式锁"><a href="#集群式分布式锁" class="headerlink" title="集群式分布式锁"></a>集群式分布式锁</h3><h2 id="主从复制与哨兵"><a href="#主从复制与哨兵" class="headerlink" title="主从复制与哨兵"></a>主从复制与哨兵</h2><p>一般搞集群最少用<code>3台</code><br>从服务器使用slaveof命令<br>主从服务器建立<code>Socket长连接</code>，采用全量（首次，RDB文件（二进制文件））和增量同步数据（Aof日志文件）<br>在分布式环境里因为网络原因，导致强一致性实现很困难<br>一主多从（同步效率低）解决办法<code>树状结构</code><br>如果主服务器宕机的话，就需要选举个新的<code>（哨兵机制）</code><br>哨兵只需连接主服务器即可，但是可以知道所有服务器的信息  </p>
-<h3 id="Redis哨兵底层原理"><a href="#Redis哨兵底层原理" class="headerlink" title="Redis哨兵底层原理"></a>Redis哨兵底层原理</h3><p>每隔10s的时间，只需要监听Master即可，用<code>递归</code>的形式获得整个Redis的集群服务列表<br>多个哨兵的情况（哨兵<code>不建议单台</code>，<code>哨兵数量建议和Redis服务器数量一致</code>）<br><code>多个哨兵都会接到Master接点</code><br>原理<code>发布订阅</code>，每个哨兵启动的时候都会在同一个通道里写入信息，这样所有的哨兵就回连接在一起（<code>一个知道就都知道了</code>）<br>配置文件里可以指定有几个哨兵ping不通时认为Master宕机<br><code>哨兵只能帮助解决选举的问题，后续的主从复制还是要手动去配</code>   </p>
-<h2 id="Redis-Cluster-从3-0开始官方支持去中心化集群方式（多个主节点了）"><a href="#Redis-Cluster-从3-0开始官方支持去中心化集群方式（多个主节点了）" class="headerlink" title="Redis Cluster 从3.0开始官方支持去中心化集群方式（多个主节点了）"></a>Redis Cluster 从3.0开始官方支持去中心化集群方式（多个主节点了）</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bigdatalearnshare/p/13909100.html">https://www.cnblogs.com/bigdatalearnshare/p/13909100.html</a><br>本质就是<code>一致性哈希</code><br>16384（<code>固定16384，取余后值不变</code>）<br>核心原理：hash槽（Slot），预先分配16384个卡槽（一个卡槽可以放多个key），将卡槽分配到具体的Redis结点<br>Master才有卡槽，从节点只能读<br>Slot（卡槽）的作用：决定key存放的具体位置，从而均摊存放数据<br>优点 ： <code>可以动态的实现扩容与缩容</code><br>迁移的时候如果有数据，数据会跟着卡槽一起迁移到新的结点  </p>
-<h2 id="redis-和-memcached-的区别"><a href="#redis-和-memcached-的区别" class="headerlink" title="redis 和 memcached 的区别"></a>redis 和 memcached 的区别</h2><p>数据结构更丰富<br>redis支持<code>持久化</code><br>集群模式<br><code>memcached没有原生的集群模式</code>，需要依靠客户端来实现往集群中分片写入数据；但是 redis 目前是原生支持 cluster 模式的.<br>Memcached是多线程，<code>非阻塞IO复用</code>的网络模型；Redis使用<code>单线程的多路 IO 复用</code>模型<br><img src="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/%E5%8C%BA%E5%88%AB.jpg" alt="avatar"></p>
-<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/65765dd10671">https://www.jianshu.com/p/65765dd10671</a></p>
-
+        <h2 id="官方文档-https-www-remotion-dev-docs-render"><a href="#官方文档-https-www-remotion-dev-docs-render" class="headerlink" title="官方文档 https://www.remotion.dev/docs/render"></a>官方文档 <a target="_blank" rel="noopener" href="https://www.remotion.dev/docs/render">https://www.remotion.dev/docs/render</a></h2><h2 id="Example-https-developer-51cto-com-art-202106-664745-htm"><a href="#Example-https-developer-51cto-com-art-202106-664745-htm" class="headerlink" title="Example https://developer.51cto.com/art/202106/664745.htm"></a>Example <a target="_blank" rel="noopener" href="https://developer.51cto.com/art/202106/664745.htm">https://developer.51cto.com/art/202106/664745.htm</a></h2><h2 id="Demo-https-github-com-remotion-dev-trailer"><a href="#Demo-https-github-com-remotion-dev-trailer" class="headerlink" title="Demo https://github.com/remotion-dev/trailer"></a>Demo <a target="_blank" rel="noopener" href="https://github.com/remotion-dev/trailer">https://github.com/remotion-dev/trailer</a></h2>
       
 
       
@@ -523,7 +378,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/25/Redis%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/18/Remotion%E4%B8%9A%E4%BD%99%E9%92%BB%E7%A0%94/">展开全文 >></a>
         </p>
       
 
@@ -553,53 +408,27 @@
 
 
   
-    <article id="post-数据库总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于k8s" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/">数据库总结</a>
+      <a class="article-title" href="/2021/07/14/%E5%85%B3%E4%BA%8Ek8s/">关于k8s</a>
     </h1>
   
 
         
-        <a href="/2021/06/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-06-25T05:51:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-25</time>
+        <a href="/2021/07/14/%E5%85%B3%E4%BA%8Ek8s/" class="archive-article-date">
+  	<time datetime="2021-07-14T13:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/SecHze-qbhw_9BP2uMu1jQ">https://mp.weixin.qq.com/s/SecHze-qbhw_9BP2uMu1jQ</a>   18个常见问题</p>
-<h2 id="为什么用B-不同哈希"><a href="#为什么用B-不同哈希" class="headerlink" title="为什么用B+不同哈希"></a>为什么用B+不同哈希</h2><h3 id="Hash："><a href="#Hash：" class="headerlink" title="Hash："></a>Hash：</h3><p>虽然可以快速定位，但是没有顺序，IO复杂度高；<br>基于Hash表实现，只有Memory存储引擎显式支持哈希索引 ；</p>
-<p>适合等值查询，如=、in()、&lt;=&gt;，不支持范围查询 ；</p>
-<p>因为不是按照索引值顺序存储的，就不能像B+Tree索引一样利用索引完成排序 ；</p>
-<p>Hash索引在查询等值时非常快 ；</p>
-<p>因为Hash索引始终索引的所有列的全部内容，所以不支持部分索引列的匹配查找 ；</p>
-<p>如果有大量重复键值得情况下，哈希索引的效率会很低，因为存在哈希碰撞问题 。</p>
-<h3 id="二叉树：树的高度不均匀，不能自平衡，查找效率跟数据有关（树的高度），并且IO代价高。"><a href="#二叉树：树的高度不均匀，不能自平衡，查找效率跟数据有关（树的高度），并且IO代价高。" class="headerlink" title="二叉树：树的高度不均匀，不能自平衡，查找效率跟数据有关（树的高度），并且IO代价高。"></a>二叉树：树的高度不均匀，不能自平衡，查找效率跟数据有关（树的高度），并且IO代价高。</h3><h3 id="红黑树：树的高度随着数据量增加而增加，IO代价高。"><a href="#红黑树：树的高度随着数据量增加而增加，IO代价高。" class="headerlink" title="红黑树：树的高度随着数据量增加而增加，IO代价高。"></a>红黑树：树的高度随着数据量增加而增加，IO代价高。</h3><hr>
-<h2 id="关于聚簇索引"><a href="#关于聚簇索引" class="headerlink" title="关于聚簇索引"></a>关于聚簇索引</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jiawen010/p/11805241.html">https://www.cnblogs.com/jiawen010/p/11805241.html</a><br>数据和索引在一起存储的索引方式叫做聚簇索引，<code>一张表只能有一个聚簇索引(也就是说只有一列）</code>。<br>聚簇索引就是按照每张表的主键构造一颗B+树，同时叶子节点中存放的就是整张表的行记录数据，也将聚集索引的叶子节点称为数据页。这个特性决定了索引组织表中数据也是索引的一部分，每张表只能拥有一个聚簇索引。<br>非聚簇索引<code>(二级索引)</code>保存的是<code>主键id</code>值，这一点和myisam保存的是数据地址是不同的。<br><code>Innodb中的主键索引是一种聚簇索引</code>，非聚簇索引都是辅助索引，像复合索引、前缀索引、唯一索引。   </p>
-<p>Innodb使用的是聚簇索引，MyISam使用的是非聚簇索引<br><code>在Innodb下主键索引是聚集索引，在Myisam下主键索引是非聚集索引</code></p>
-<h2 id="联合索引，最左前缀匹配规则，sql优化器在其应用"><a href="#联合索引，最左前缀匹配规则，sql优化器在其应用" class="headerlink" title="联合索引，最左前缀匹配规则，sql优化器在其应用"></a>联合索引，最左前缀匹配规则，sql优化器在其应用</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/caiji/p/10108203.html">https://www.cnblogs.com/caiji/p/10108203.html</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/big-handsome-guy/p/7755059.html">https://www.cnblogs.com/big-handsome-guy/p/7755059.html</a></p>
-<h3 id="最左前缀匹配原则"><a href="#最左前缀匹配原则" class="headerlink" title="最左前缀匹配原则"></a>最左前缀匹配原则</h3><p>在MySQL建立联合索引时会遵循最左前缀匹配的原则，即最左优先，在检索数据时从联合索引的最左边开始匹配，示例：对列<code>uId</code>、列<code>chatId</code>和列<code>tId</code>建一个联合索引<br><code>shell KEY test_uId_chatId_tId on test(uId,chatId,tId);</code><br>联合索引test_uId_chatId_tId 实际建立了(uId)、(uId,chatId)、(uId,chatId,tId)<code>三个索引</code>。<br><code>SELECT * FROM test WHERE uId=“1” AND chatId=“2”;</code><br>上面这个查询语句执行时会依照最左前缀匹配原则，检索时会使用索引(uId,chatId)进行数据匹配。<br>索引的字段可以是任意顺序的，如：<br><code>SELECT * FROM test WHERE chatId=“2” AND uId=“1”;</code><br>查询语句都包涵索引(uId,chatId)中的uId、chatId两个字段，只是顺序不一样，查询条件一样，最后所查询的结果肯定是一样的。既然结果是一样的，到底以何种顺序的查询方式最好呢？此时我们可以借助<code>mysql查询优化器explain</code>，<code>explain会纠正sql语句该以什么样的顺序执行效率最高</code>，最后才生成真正的执行计划。<br>对于联合索引(uId,chatId,tId)，查询语句<br><code>SELECT * FROM test WHERE chatId=2;</code>是否能够触发索引,<code>实际上是触发索引的(应该指的就是普通索引，不是指聚集索引）</code><br>使用<code>EXPLAIN</code>进行分析<br>数据表中有一项叫<code>type</code><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_29117669/article/details/113188025">https://blog.csdn.net/weixin_29117669/article/details/113188025</a><br>type扫描方式由快到慢<br>system &gt; const &gt; eq_ref &gt; ref &gt; range &gt; index &gt; ALL<br>type: index<br><code>index类型，需要扫描索引上的全部数据，它仅比全表扫描快一点</code><br>index：这种类型表示mysql会对整个该索引进行扫描。要想用到这种类型的索引，对这个索引并无特别要求，只要是索引，<code>或者某个联合索引的一部分</code>，mysql都可能会采用index类型的方式扫描。但是呢，缺点是效率不高，mysql会从索引中的第一个数据一个个的查找到最后一个数据，直到找到符合判断条件的某个索引。所以，上述语句会触发索引。<br>type: ref<br>ref：这种类型表示mysql会根据特定的算法快速查找到某个符合条件的索引，而不是会对索引中每一个数据都进行一一的扫描判断，也就是所谓你平常理解的使用索引查询会更快的取出数据。而要想实现这种查找，索引却是有要求的，要实现这种能快速查找的算法，索引就要满足特定的数据结构。简单说，也就是索引字段的数据必须是有序的，才能实现这种类型的查找，才能利用到索引。<br><code>关于ALL</code> 如果id上不建索引,则<code>全表扫描</code></p>
-<h2 id="关于覆盖索引和回表"><a href="#关于覆盖索引和回表" class="headerlink" title="关于覆盖索引和回表"></a>关于覆盖索引和回表</h2><p>覆盖索引指的是在一次查询中，如果<code>一个索引</code>包含或者说覆盖所有需要查询的字段的值，我们就称之为覆盖索引，而不再需要回表查询。</p>
-<p>而要确定一个查询是否是覆盖索引，我们只需要explain sql语句看Extra的结果是否是“Using index”即可。</p>
-<h3 id="回表"><a href="#回表" class="headerlink" title="回表"></a>回表</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8991cbca3854">https://www.jianshu.com/p/8991cbca3854</a><br>聚集索引(叶子存整行数据,一般默认也会有个聚集索引)<br>普通索引(存的PK值(聚集索引值),查两次)<br><code>事实上，如果配置了redis的话，一般会单把回表查询的id值（主索引）放入redis内（返回的整条数据也在redis内，但是只在id目录下才有），方便下一次的查询</code>    </p>
-<h3 id="索引下推"><a href="#索引下推" class="headerlink" title="索引下推"></a>索引下推</h3><p><code>复合索引</code>里面采用的优化手段，在进行筛选后再进行回表，避免多次回表</p>
-<h2 id="锁的类型有哪些呢"><a href="#锁的类型有哪些呢" class="headerlink" title="锁的类型有哪些呢"></a>锁的类型有哪些呢</h2><p>mysql锁分为共享锁和排他锁，<code>也叫做读锁和写锁</code>。<br>读锁是共享的，可以通过lock in share mode实现，这时候只能读不能写。</p>
-<p>写锁是排他的，它会阻塞其他的写锁和读锁。<code>从颗粒度来区分，可以分为表锁和行锁两种</code>。<br>表锁会锁定整张表并且阻塞其他用户对该表的所有读写操作，比如<code>alter修改表结构的时候会锁表</code>。<br>行锁又可以分为<code>乐观锁和悲观锁</code>，悲观锁可以通过<code>for update</code>实现，乐观锁则通过<code>版本号</code>实现。</p>
-<h3 id="乐观锁（CAS）与悲观锁"><a href="#乐观锁（CAS）与悲观锁" class="headerlink" title="乐观锁（CAS）与悲观锁"></a>乐观锁（CAS）与悲观锁</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ed896335b3b4">https://www.jianshu.com/p/ed896335b3b4</a><br>乐观锁（CAS）认为只有在更新会冲突，这个时候如果数据和更新前自己拿到的数据一致，那么就可以修改，否则就认为发生了冲突，因此乐观锁有<code>ABA问题</code><br>为此，可以用version（<code>版本号，更新的时候版本号变动</code>）来记录（也可以用时间戳），在<code>更新提交</code>的时候检查当前数据库中数据的时间戳和自己<code>更新前</code>取到的时间戳进行对比，如果一致则OK，否则就是版本冲突。</p>
-<h2 id="Redo日志与Undo日志"><a href="#Redo日志与Undo日志" class="headerlink" title="Redo日志与Undo日志"></a>Redo日志与Undo日志</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5c2de0475a66">https://www.jianshu.com/p/5c2de0475a66</a>  </p>
-<h3 id="redo重做是为了恢复。"><a href="#redo重做是为了恢复。" class="headerlink" title="redo重做是为了恢复。"></a>redo重做是为了恢复。</h3><p>比如系统崩溃了，机器宕机了，磁盘坏了。这时候重启机器之后需要将恢复数据，就需要用redo log  </p>
-<h3 id="undo撤销是为了撤销操作"><a href="#undo撤销是为了撤销操作" class="headerlink" title="undo撤销是为了撤销操作"></a>undo撤销是为了撤销操作</h3><p>最简单的就是数据库事务，需要<code>rollback</code>的时候就要用到undo log(撤销)  </p>
-<h2 id="Read-View-读视图，快照"><a href="#Read-View-读视图，快照" class="headerlink" title="Read View(读视图，快照)"></a>Read View(读视图，快照)</h2><h2 id="关于MVCC"><a href="#关于MVCC" class="headerlink" title="关于MVCC"></a>关于MVCC</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1t5411u7Fg">https://www.bilibili.com/video/BV1t5411u7Fg</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8845ddca3b23">https://www.jianshu.com/p/8845ddca3b23</a><br>快照读<br>MVCC叫做多版本并发控制，实际上就是保存了数据在某个时间节点的快照。<br>我们每行数据实际上隐藏了两列，创建时间版本号，过期(删除)时间版本号，<code>每开始一个新的事务，版本号都会自动递增。(每次进行操作，current version都会进行自增）</code>  </p>
-<p>MVCC的原理是查找创建版本小于或等于当前事务版本，删除版本为空或者大于当前事务版本<code> (为了保证事务读取的数据是在事务开始前就已经存在的，要么是事务自己插入或者修改的)。</code>  </p>
-<p>快照读的实现是基于多版本并发控制，即MVCC,<code>可以认为MVCC是行锁的一个变种</code>，但它在很多情况下，<code>避免了加锁操作，降低了开销</code>；既然是基于多版本，即快照读可能读到的<code>并不一定是数据的最新版本，而有可能是之前的历史版本</code>。  </p>
-<h3 id="RC-RR级别（隔离可以设置为不同的级别）"><a href="#RC-RR级别（隔离可以设置为不同的级别）" class="headerlink" title="RC,RR级别（隔离可以设置为不同的级别）"></a>RC,RR级别（隔离可以设置为不同的级别）</h3><p>隔离的等级是可以设置的  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/sea-stream/p/11297969.html">https://www.cnblogs.com/sea-stream/p/11297969.html</a><br>总之在RC隔离级别下，是每个快照读都会生成并获取最新的Read View；<br>而在RR隔离级别下，则是同一个事务中的第一个快照读才会创建Read View, 之后的快照读获取的都是同一个Read View。</p>
-<h2 id="关于乱七八糟"><a href="#关于乱七八糟" class="headerlink" title="关于乱七八糟"></a>关于乱七八糟</h2><h2 id="reference"><a href="#reference" class="headerlink" title="reference:"></a>reference:</h2><p>面试总结1：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6868270408534720525utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=983388741351776256">https://juejin.cn/post/6868270408534720525utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=983388741351776256</a></p>
+        <h2 id="kubeasz"><a href="#kubeasz" class="headerlink" title="kubeasz"></a>kubeasz</h2><p><a target="_blank" rel="noopener" href="https://github.com/easzlab/kubeasz">https://github.com/easzlab/kubeasz</a></p>
 
       
 
@@ -608,22 +437,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/14/%E5%85%B3%E4%BA%8Ek8s/">展开全文 >></a>
         </p>
       
 
@@ -653,28 +471,171 @@
 
 
   
-    <article id="post-开启要饭之路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-go-zero要饭之路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/25/%E5%BC%80%E5%90%AF%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">开启要饭之路</a>
+      <a class="article-title" href="/2021/07/10/go-zero%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">go-zero要饭之路</a>
     </h1>
   
 
         
-        <a href="/2021/06/25/%E5%BC%80%E5%90%AF%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/" class="archive-article-date">
-  	<time datetime="2021-06-25T05:18:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-25</time>
+        <a href="/2021/07/10/go-zero%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/" class="archive-article-date">
+  	<time datetime="2021-07-10T05:04:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="从今天开始努力要饭！！"><a href="#从今天开始努力要饭！！" class="headerlink" title="从今天开始努力要饭！！"></a>从今天开始努力要饭！！</h1><p><img src="/2021/06/25/%E5%BC%80%E5%90%AF%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/haha.jpg" alt="avatar"></p>
-<h2 id="关于hexo的一些坑"><a href="#关于hexo的一些坑" class="headerlink" title="关于hexo的一些坑"></a>关于hexo的一些坑</h2><p>在最后<code>部署</code>到github的时候要用<code>git bash</code>来运行<code>hexo d</code>，不能直接使用windows的cmd！！！</p>
+        <p>项目地址 <a target="_blank" rel="noopener" href="https://github.com/tal-tech/go-zero">https://github.com/tal-tech/go-zero</a><br>文档 <a target="_blank" rel="noopener" href="https://go-zero.dev/cn/">https://go-zero.dev/cn/</a>(永远滴神！！！)</p>
+<h2 id="go-ctl"><a href="#go-ctl" class="headerlink" title="go-ctl"></a>go-ctl</h2><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1801931">https://cloud.tencent.com/developer/article/1801931</a> </p>
+<h2 id="限流"><a href="#限流" class="headerlink" title="限流"></a>限流</h2><p>令牌桶<br>漏桶  </p>
+<h2 id="分级降载"><a href="#分级降载" class="headerlink" title="分级降载"></a>分级降载</h2><p>Cpu大于90%的时候 拒绝低优先级请求<br>滑动窗口  </p>
+<h2 id="熔断"><a href="#熔断" class="headerlink" title="熔断"></a>熔断</h2><p>Google SRE算法（比Netfix Hystrix算法好）  </p>
+<h2 id="超时控制"><a href="#超时控制" class="headerlink" title="超时控制"></a>超时控制</h2><p>一般一个service总是以秒级为单位的（一般是几个小的service叠加起来）</p>
+<h2 id="重试（go-zero里暂时没有自动重试）"><a href="#重试（go-zero里暂时没有自动重试）" class="headerlink" title="重试（go-zero里暂时没有自动重试）"></a>重试（go-zero里暂时没有自动重试）</h2><p>指数退避  </p>
+<h2 id="http请求校验"><a href="#http请求校验" class="headerlink" title="http请求校验"></a>http请求校验</h2><p>goctl</p>
+<h2 id="缓存设计-（goctl支持一键生成）"><a href="#缓存设计-（goctl支持一键生成）" class="headerlink" title="缓存设计 （goctl支持一键生成）"></a>缓存设计 （goctl支持一键生成）</h2><p>缓存穿透（数据不存在）<br>查不到也自动缓存（但是时间比较短，一分钟）</p>
+<p>缓存击穿（热点key过期了）<br>确保一个进程同时只拿一个（类似加锁）</p>
+<p>缓存雪崩（大量缓存一起过期）<br>对缓存过期时间设置<code>随机偏差</code>，确保分散过期</p>
+<h3 id="缓存基于非主键的查询（如果查的是非主键的缓存）"><a href="#缓存基于非主键的查询（如果查的是非主键的缓存）" class="headerlink" title="缓存基于非主键的查询（如果查的是非主键的缓存）"></a>缓存基于非主键的查询（如果查的是非主键的缓存）</h3><p>转换为主键做缓存  查询-&gt;主键-&gt;缓存</p>
+<h3 id="分布式缓存"><a href="#分布式缓存" class="headerlink" title="分布式缓存"></a>分布式缓存</h3><p>一致性哈希 </p>
+<h2 id="可观测性"><a href="#可观测性" class="headerlink" title="可观测性"></a>可观测性</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/10/go-zero%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-golang正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/08/golang%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">golang正则表达式</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/08/golang%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2021-07-08T07:44:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/08/golang%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于Raft" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/06/%E5%85%B3%E4%BA%8ERaft/">关于Raft</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/06/%E5%85%B3%E4%BA%8ERaft/" class="archive-article-date">
+  	<time datetime="2021-07-06T06:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013970991/article/details/76602213">https://blog.csdn.net/u013970991/article/details/76602213</a><br>动画演示（Very good！！）  <a target="_blank" rel="noopener" href="http://thesecretlivesofdata.com/raft/">http://thesecretlivesofdata.com/raft/</a>  </p>
+<p>先进行日志同步，半数ok后再集体提交，如果得不到半数，领导者也无法提交</p>
+<p>脑裂的时候，以任期号更新的为准，之前的会进行回滚然后匹配新领导者的日志</p>
+<p>term任期号</p>
+<h1 id="Cap理论"><a href="#Cap理论" class="headerlink" title="Cap理论"></a>Cap理论</h1><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/54105974">https://www.zhihu.com/question/54105974</a></p>
+<h1 id="网络分区"><a href="#网络分区" class="headerlink" title="网络分区"></a>网络分区</h1><p>比如，我们的分布式存储系统有 A、B 两个节点。那么，当 A、B 之间由于可能路由器、交换机等底层网络设备出现了故障，A 和 B 通信出现了问题，但是 A、B 依然都在运行，都在对外提供服务。这时候，就说 A 和 B 发生了分区。</p>
+<h1 id="3个rpc"><a href="#3个rpc" class="headerlink" title="3个rpc"></a>3个rpc</h1><p>候选人 -&gt;  跟随人（选举投票Rpc）</p>
+<p>领导者 -&gt; 跟随人</p>
 
       
 
@@ -683,26 +644,139 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂耍</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/25/%E5%BC%80%E5%90%AF%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/06/%E5%85%B3%E4%BA%8ERaft/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-React辅助要饭之路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/05/React%E8%BE%85%E5%8A%A9%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">React辅助要饭之路</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/05/React%E8%BE%85%E5%8A%A9%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/" class="archive-article-date">
+  	<time datetime="2021-07-05T06:48:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>生命周期<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/88d62753c1ef">https://www.jianshu.com/p/88d62753c1ef</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/05/React%E8%BE%85%E5%8A%A9%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于Go的各种IO库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/05/%E5%85%B3%E4%BA%8EGo%E7%9A%84%E5%90%84%E7%A7%8DIO%E5%BA%93/">关于Go的各种IO库</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/05/%E5%85%B3%E4%BA%8EGo%E7%9A%84%E5%90%84%E7%A7%8DIO%E5%BA%93/" class="archive-article-date">
+  	<time datetime="2021-07-05T03:21:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于Go的各种IO库"><a href="#关于Go的各种IO库" class="headerlink" title="关于Go的各种IO库"></a>关于Go的各种IO库</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/TtN6NZ8hQ2AIf0C8wVzkjA">https://mp.weixin.qq.com/s/TtN6NZ8hQ2AIf0C8wVzkjA</a></p>
+<h2 id="ioutil库"><a href="#ioutil库" class="headerlink" title="ioutil库"></a>ioutil库</h2><p>ReadAll、ReadFile、WriteFile、ReadDir  一次性都读完<br><code>ReadAll</code>是以Eof或error作为分界的，在socket里面的conn里如果客户端不断是读不了的！！！！（大坑）</p>
+<h2 id="bufio库"><a href="#bufio库" class="headerlink" title="bufio库"></a>bufio库</h2><p>可以实现一行一行读，减小内存负担</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/05/%E5%85%B3%E4%BA%8EGo%E7%9A%84%E5%90%84%E7%A7%8DIO%E5%BA%93/">展开全文 >></a>
         </p>
       
 
@@ -734,7 +808,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -882,6 +956,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">container</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">golang-container</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">pprof</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法;面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
             
             <div class="clearfix"></div>
