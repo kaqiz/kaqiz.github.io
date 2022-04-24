@@ -381,7 +381,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="给面试官带来笑容"><a href="#给面试官带来笑容" class="headerlink" title="给面试官带来笑容"></a>给面试官带来笑容</h1><p>golang语言层 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139472538?utm_source=wechat_session">https://zhuanlan.zhihu.com/p/139472538?utm_source=wechat_session</a></p>
+<h3 id="Goroutine结构"><a href="#Goroutine结构" class="headerlink" title="Goroutine结构"></a>Goroutine结构</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/luyaran/article/details/120720594">https://blog.csdn.net/luyaran/article/details/120720594</a></p>
+<p>栈的扩容与缩容 <a target="_blank" rel="noopener" href="https://blog.csdn.net/kevin_tech/article/details/108989276">https://blog.csdn.net/kevin_tech/article/details/108989276</a></p>
+<h3 id="Sync"><a href="#Sync" class="headerlink" title="Sync"></a>Sync</h3><p>Pool <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/369605252">https://zhuanlan.zhihu.com/p/369605252</a></p>
+<p>首先sync.Pool是可伸缩的临时对象池，也是并发安全的。其可伸缩的大小会受限于内存的大小，可以理解为是一个存放可重用对象的容器。</p>
+<p>sync.Pool设计的目的就是用于存放已经分配的但是暂时又不用的对象，而且在需要用到的时候，可以直接从该pool中取。</p>
+<p><strong>pool中任何存放的值可以在任何时候被删除而不会收到通知。</strong></p>
+<p>个人觉得它的名字有一定的误导性，因为 Pool 里装的对象可以被无通知地被回收，<strong>觉得 sync.Cache 的名字更合适sync.Pool的命名。</strong></p>
 <h2 id="GMP模型"><a href="#GMP模型" class="headerlink" title="GMP模型"></a>GMP模型</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42322309/article/details/106750820">https://blog.csdn.net/weixin_42322309/article/details/106750820</a></p>
+<h4 id="Golang-Sort包"><a href="#Golang-Sort包" class="headerlink" title="Golang Sort包"></a>Golang Sort包</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43279457/article/details/121730095">https://blog.csdn.net/qq_43279457/article/details/121730095</a></p>
+<p> sort.Sort(sort.Reverse(sort.IntSlice(intList)))（降序排序）</p>
+<p><a target="_blank" rel="noopener" href="https://www.h5w3.com/235008.html">https://www.h5w3.com/235008.html</a></p>
+<h3 id="Panic"><a href="#Panic" class="headerlink" title="Panic"></a>Panic</h3><p><strong>Pinic与 defer func（revcover）</strong></p>
+<p><strong>defer 发生在 panic之前</strong></p>
 <h3 id="怎么去避免panic（panic的条件）"><a href="#怎么去避免panic（panic的条件）" class="headerlink" title="怎么去避免panic（panic的条件）"></a>怎么去避免panic（panic的条件）</h3><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1921657">https://cloud.tencent.com/developer/article/1921657</a></p>
 <ul>
 <li><p>调用空指针</p>
@@ -405,19 +417,18 @@
 
 <h3 id="sync-Map"><a href="#sync-Map" class="headerlink" title="sync.Map"></a>sync.Map</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jiujuan/p/13365901.html">https://www.cnblogs.com/jiujuan/p/13365901.html</a></p>
 <h3 id="内存逃逸的几种情况"><a href="#内存逃逸的几种情况" class="headerlink" title="内存逃逸的几种情况"></a>内存逃逸的几种情况</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/145468000">https://zhuanlan.zhihu.com/p/145468000</a></p>
+<p><strong>go tool compile cflags=-m  文件名</strong></p>
 <p>能引起变量逃逸到堆上的<strong>典型情况</strong>：</p>
 <ul>
-<li><p><strong>在方法内把局部变量指针返回</strong> 局部变量原本应该在栈中分配，在栈中回收。但是由于返回时被外部引用，因此其生命周期大于栈，则溢出。</p>
-</li>
-<li><p><strong>发送指针或带有指针的值到 channel 中。</strong> 在编译时，是没有办法知道哪个 goroutine 会在 channel 上接收数据。所以编译器没法知道变量什么时候才会被释放。</p>
-</li>
-<li><p><strong>在一个切片上存储指针或带指针的值。</strong> 一个典型的例子就是 []*string 。这会导致切片的内容逃逸。尽管其后面的数组可能是在栈上分配的，但其引用的值一定是在堆上。</p>
-</li>
-<li><p><strong>slice 的背后数组被重新分配了，因为 append 时可能会超出其容量( cap )。</strong> slice 初始化的地方在编译时是可以知道的，它最开始会在栈上分配。如果切片背后的存储要基于运行时的数据进行扩充，就会在堆上分配。</p>
-</li>
-<li><p><strong>在 interface 类型上调用方法。</strong> 在 interface 类型上调用方法都是动态调度的 —— 方法的真正实现只能在运行时知道。想像一个 io.Reader 类型的变量 r , 调用 r.Read(b) 会使得 r 的值和切片b 的背后存储都逃逸掉，所以会在堆上分配。**(通过<code>fmt.Println(a ...interface&#123;&#125;)</code>打印的变量，都会发生逃逸)**</p>
-</li>
+<li><strong>在方法内把局部变量指针返回</strong> 局部变量原本应该在栈中分配，在栈中回收。但是由于返回时被外部引用，因此其生命周期大于栈，则溢出。</li>
+<li><strong>发送指针或带有指针的值到 channel 中。</strong> 在编译时，是没有办法知道哪个 goroutine 会在 channel 上接收数据。所以编译器没法知道变量什么时候才会被释放。</li>
+<li><strong>在一个切片上存储指针或带指针的值。</strong> 一个典型的例子就是 []*string 。这会导致切片的内容逃逸。尽管其后面的数组可能是在栈上分配的，但其引用的值一定是在堆上。</li>
+<li><strong>slice 的背后数组被重新分配了，因为 append 时可能会超出其容量( cap )。</strong> slice 初始化的地方在编译时是可以知道的，它最开始会在栈上分配。如果切片背后的存储要基于运行时的数据进行扩充，就会在堆上分配。</li>
+<li><strong>在 interface 类型上调用方法。</strong> 在 interface 类型上调用方法都是动态调度的 —— 方法的真正实现只能在运行时知道。想像一个 io.Reader 类型的变量 r , 调用 r.Read(b) 会使得 r 的值和切片b 的背后存储都逃逸掉，所以会在堆上分配。**(通过<code>fmt.Println(a ...interface&#123;&#125;)</code>打印的变量，都会发生逃逸)**</li>
 </ul>
+<h3 id="Random包"><a href="#Random包" class="headerlink" title="Random包"></a>Random包</h3><p><a target="_blank" rel="noopener" href="http://www.cppcns.com/jiaoben/golang/278042.html">http://www.cppcns.com/jiaoben/golang/278042.html</a></p>
+<p>seed 只用于决定一个确定的随机序列。不管seed多大多小，只要随机序列一确定，本身就不会再重复。除非是样本空间太小。解决方案有两种：</p>
+<p>在全局初始化调用一次seed即可<br>每次使用纳秒级别的种子（强烈不推荐这种）</p>
 <h3 id="cpu特别高如何定位"><a href="#cpu特别高如何定位" class="headerlink" title="cpu特别高如何定位"></a>cpu特别高如何定位</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/45c6bcb85934">https://www.jianshu.com/p/45c6bcb85934</a></p>
 <p>一个应用占用 CPU 很高，除了<strong>确实是计算密集型应用</strong>之外，通常原因都是出现了<code>死循环</code></p>
 <ul>
@@ -528,6 +539,44 @@
 <p>  （2）<strong>撤消进程，剥夺资源。终止参与死锁的进程，收回它们占有的资源，从而解除死锁</strong>。这时又分两种情况：一次性撤消参与死锁的全部进程，剥夺全部资源；或者逐步撤消参与死锁的进程，逐步收回死锁进程占有的资源。一般来说，选择逐步撤消的进程时要按照一定的原则进行，<code>目的是撤消那些代价最小的进程，比如按进程的优先级确定进程的代价；考虑进程运行时的代价和与此进程相关的外部作业的代价等因素。</code> </p>
 <p> 此外，还有进程回退策略，即让参与死锁的进程回退到没有发生死锁前某一点处，并由此点处继续执行，以求再次执行时不再发生死锁。虽然这是个较理想的办法，但是操作起来系统开销极大，要有堆栈这样的机构记录进程的每一步变化，以便今后的回退，有时这是无法做到的。</p>
 <p>　</p>
+<h3 id="Mysql一张表能放多少数据"><a href="#Mysql一张表能放多少数据" class="headerlink" title="Mysql一张表能放多少数据"></a>Mysql一张表能放多少数据</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq1309664161/article/details/124032981">https://blog.csdn.net/qq1309664161/article/details/124032981</a></p>
+<h3 id="Linux-命令"><a href="#Linux-命令" class="headerlink" title="Linux 命令"></a>Linux 命令</h3><p>Grep <a target="_blank" rel="noopener" href="https://www.cnblogs.com/baichunyu/p/15314049.html">https://www.cnblogs.com/baichunyu/p/15314049.html</a> </p>
+<h3 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h3><h4 id="只要是”-”这个字符是在中括号”-”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”-”中使用，不包括嵌套使用。"><a href="#只要是”-”这个字符是在中括号”-”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”-”中使用，不包括嵌套使用。" class="headerlink" title="^  只要是”^”这个字符是在中括号”[]”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”[]”中使用，不包括嵌套使用。"></a>^  只要是”^”这个字符是在中括号”[]”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”[]”中使用，不包括嵌套使用。</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/doubleguy/article/details/90341705">https://blog.csdn.net/doubleguy/article/details/90341705</a></p>
+<h3 id="Linux权限"><a href="#Linux权限" class="headerlink" title="Linux权限"></a>Linux权限</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/soindy/article/details/73743670">https://blog.csdn.net/soindy/article/details/73743670</a></p>
+<p> Linux中的权限分为三种，分别是<strong>所有者</strong>，<strong>所在组</strong>和<strong>其他</strong>。</p>
+<p> 所有者：一般为文件的创建者，谁创建了该文件，就天然的成为该文件的所有者。</p>
+<p> 所在组：当某个用户创建了一个文件后，这个文件的所在组就是该用户所在的组。</p>
+<p> 其它：除开文件的所有者和所在组的用户外，系统的其它用户都是文件的其它组</p>
+<h3 id="Golang内存对齐"><a href="#Golang内存对齐" class="headerlink" title="Golang内存对齐"></a>Golang内存对齐</h3><p><a target="_blank" rel="noopener" href="https://wjrsbu.smartapps.cn/zhihu/article?id=388826885&amp;isShared=1&amp;_swebfr=1&amp;_swebFromHost=baiduboxapp">https://wjrsbu.smartapps.cn/zhihu/article?id=388826885&amp;isShared=1&amp;_swebfr=1&amp;_swebFromHost=baiduboxapp</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39397165/article/details/119745975">https://blog.csdn.net/qq_39397165/article/details/119745975</a></p>
+<p>小总结：最占内存的数据结构放在最上面或者下面都还行，但是放在中间就会导致两侧的内存开始大幅度padding（填充）</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>堆</p>
+<ul>
+<li>堆中某个结点的值总是不大于或不小于其父结点的值；</li>
+<li>堆总是一棵完全二叉树。</li>
+</ul>
+<p><img src="https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de15adc33ec7bf6c81800a4c51?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto" alt="img"></p>
+<h3 id="HTTP2-0的新特性"><a href="#HTTP2-0的新特性" class="headerlink" title="HTTP2.0的新特性"></a>HTTP2.0的新特性</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Destiny_shine/article/details/109310329">https://blog.csdn.net/Destiny_shine/article/details/109310329</a></p>
+<p><strong>HTTP/2 采用二进制格式传输数据</strong>，而非 HTTP 1.x 的文本格式。</p>
+<p><img src="https://img-blog.csdnimg.cn/20201027143227577.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Rlc3Rpbnlfc2hpbmU=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>多路复用（Multiplexing</strong>）</p>
+<p><strong>头部压缩（Header Compression）</strong></p>
+<p>HTTP/2在客户端和服务器端使用“首部表”来跟踪和存储之前发送的 键－值 对，对于相同的数据，不再通过每次的请求和响应发送</p>
+<p>只需要发送差异数据就行了，这样可以减少冗余数据，降低开销。</p>
+<p><strong>服务端推送（Server Push）</strong></p>
+<p>服务端可以在发送页面HTML时主动向客户端推送其它资源，而无需等到客户端浏览器解析到相应位置重新发起请求再响应。</p>
+<p><code>但是服务器只能主动将资源推送到客户端缓存！并不允许将数据推送到客户端里跑的 Web App 本身</code></p>
+<p><code>websocket</code>是基于TCP的，并不是基于HTTP</p>
+<h3 id="神棍位运算"><a href="#神棍位运算" class="headerlink" title="神棍位运算"></a>神棍位运算</h3><p>参与运算的数以<strong>补码</strong>方式出现</p>
+<h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><p>1、modify：只能修改字段的属性。</p>
+<p>2、alter：除了修改字段属性外，还可以做增加删除操作。</p>
+<h3 id="UDP与TCP"><a href="#UDP与TCP" class="headerlink" title="UDP与TCP"></a>UDP与TCP</h3><p>UDP：DHCP  SNTP  DNS</p>
+<p>TCP：SMTP</p>
+<h3 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chenyulancn/article/details/123958485">https://blog.csdn.net/chenyulancn/article/details/123958485</a></p>
+<h3 id="玄学场景题"><a href="#玄学场景题" class="headerlink" title="玄学场景题"></a>玄学场景题</h3><p>一个机器不能正常工作了，如何优雅的下线</p>
+<p>开始说持久化问题。后来说心跳机制</p>
+<p>了解过负载均衡吗？</p>
+<p>CDN的工作原理</p>
 
       
 
