@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de15adc33ec7bf6c81800a4c51?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20201027143227577.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Rlc3Rpbnlfc2hpbmU=,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="article:published_time" content="2022-04-05T06:33:18.000Z">
-<meta property="article:modified_time" content="2022-04-24T16:53:47.792Z">
+<meta property="article:modified_time" content="2022-04-26T14:47:12.007Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
@@ -178,6 +178,7 @@
         <h1 id="给面试官带来笑容"><a href="#给面试官带来笑容" class="headerlink" title="给面试官带来笑容"></a>给面试官带来笑容</h1><p>golang语言层 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139472538?utm_source=wechat_session">https://zhuanlan.zhihu.com/p/139472538?utm_source=wechat_session</a></p>
 <h3 id="Goroutine结构"><a href="#Goroutine结构" class="headerlink" title="Goroutine结构"></a>Goroutine结构</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/luyaran/article/details/120720594">https://blog.csdn.net/luyaran/article/details/120720594</a></p>
 <p>栈的扩容与缩容 <a target="_blank" rel="noopener" href="https://blog.csdn.net/kevin_tech/article/details/108989276">https://blog.csdn.net/kevin_tech/article/details/108989276</a></p>
+<h3 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/390970529">https://zhuanlan.zhihu.com/p/390970529</a></p>
 <h3 id="Sync"><a href="#Sync" class="headerlink" title="Sync"></a>Sync</h3><p>Pool <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/369605252">https://zhuanlan.zhihu.com/p/369605252</a></p>
 <p>首先sync.Pool是可伸缩的临时对象池，也是并发安全的。其可伸缩的大小会受限于内存的大小，可以理解为是一个存放可重用对象的容器。</p>
 <p>sync.Pool设计的目的就是用于存放已经分配的但是暂时又不用的对象，而且在需要用到的时候，可以直接从该pool中取。</p>
@@ -335,6 +336,16 @@
 <p> 此外，还有进程回退策略，即让参与死锁的进程回退到没有发生死锁前某一点处，并由此点处继续执行，以求再次执行时不再发生死锁。虽然这是个较理想的办法，但是操作起来系统开销极大，要有堆栈这样的机构记录进程的每一步变化，以便今后的回退，有时这是无法做到的。</p>
 <p>　</p>
 <h3 id="Mysql一张表能放多少数据"><a href="#Mysql一张表能放多少数据" class="headerlink" title="Mysql一张表能放多少数据"></a>Mysql一张表能放多少数据</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq1309664161/article/details/124032981">https://blog.csdn.net/qq1309664161/article/details/124032981</a></p>
+<h3 id="Mysql的间隙锁"><a href="#Mysql的间隙锁" class="headerlink" title="Mysql的间隙锁"></a>Mysql的间隙锁</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/385585143">https://zhuanlan.zhihu.com/p/385585143</a></p>
+<p>避免RR等级时的幻读，MVCC是解决不可重复读的</p>
+<p><code>注意：只有RR隔离级别才存在间隙锁。</code></p>
+<ul>
+<li>不可重复读：同一个事务中读取某些数据已经发生改变，或某些记录已经删除。（变了或者没了叫不可重复读）</li>
+<li>幻读：一个事务按照相同的查询条件重新读取以前检索过的数据，却发现其他事务插入了满足查询条件的新数据，这种现象被称为幻读。（多了新的叫幻读）</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/littlewhitevg/article/details/108247860">https://blog.csdn.net/littlewhitevg/article/details/108247860</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/leonpenn/article/details/72832010">https://blog.csdn.net/leonpenn/article/details/72832010</a></p>
+<p><strong>InnoDB支持行锁（锁定字段含有索引的情况下，否则走表锁）</strong>，但锁定方式并非简单的锁定指定行上的索引，而是分为3种锁定算法：<br>1）记录锁（Record Locks）：锁定指定行的索引项<br>2）Gap Locks：锁定某一个范围内的索引，但不包括记录本身<br>3）间隙锁定（Next-Key Locks）：锁定<strong>一个范围内</strong>的索引，并且<strong>锁定记录本身</strong> </p>
 <h3 id="Linux-命令"><a href="#Linux-命令" class="headerlink" title="Linux 命令"></a>Linux 命令</h3><p>Grep <a target="_blank" rel="noopener" href="https://www.cnblogs.com/baichunyu/p/15314049.html">https://www.cnblogs.com/baichunyu/p/15314049.html</a> </p>
 <h3 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h3><h4 id="只要是”-”这个字符是在中括号”-”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”-”中使用，不包括嵌套使用。"><a href="#只要是”-”这个字符是在中括号”-”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”-”中使用，不包括嵌套使用。" class="headerlink" title="^  只要是”^”这个字符是在中括号”[]”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”[]”中使用，不包括嵌套使用。"></a>^  只要是”^”这个字符是在中括号”[]”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”[]”中使用，不包括嵌套使用。</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/doubleguy/article/details/90341705">https://blog.csdn.net/doubleguy/article/details/90341705</a></p>
 <h3 id="Linux权限"><a href="#Linux权限" class="headerlink" title="Linux权限"></a>Linux权限</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/soindy/article/details/73743670">https://blog.csdn.net/soindy/article/details/73743670</a></p>
@@ -362,6 +373,7 @@
 <p>服务端可以在发送页面HTML时主动向客户端推送其它资源，而无需等到客户端浏览器解析到相应位置重新发起请求再响应。</p>
 <p><code>但是服务器只能主动将资源推送到客户端缓存！并不允许将数据推送到客户端里跑的 Web App 本身</code></p>
 <p><code>websocket</code>是基于TCP的，并不是基于HTTP</p>
+<h3 id="各种排序"><a href="#各种排序" class="headerlink" title="各种排序"></a>各种排序</h3><p>冒泡  0-（n-1）   0-（n-1-i）</p>
 <h3 id="神棍位运算"><a href="#神棍位运算" class="headerlink" title="神棍位运算"></a>神棍位运算</h3><p>参与运算的数以<strong>补码</strong>方式出现</p>
 <h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><p>1、modify：只能修改字段的属性。</p>
 <p>2、alter：除了修改字段属性外，还可以做增加删除操作。</p>
@@ -372,6 +384,12 @@
 <p>开始说持久化问题。后来说心跳机制</p>
 <p>了解过负载均衡吗？</p>
 <p>CDN的工作原理</p>
+<h3 id="神奇的数学"><a href="#神奇的数学" class="headerlink" title="神奇的数学"></a>神奇的数学</h3><p>逆序数 <a target="_blank" rel="noopener" href="https://blog.csdn.net/ojshilu/article/details/17066737%EF%BC%88%E9%80%86%E5%BA%8F%E5%88%97%EF%BC%8C%E6%AF%8F%E4%B8%AA%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%E5%A4%9A%E5%B0%91%E6%AC%A1%E5%88%B0%E6%AD%A3%E7%A1%AE%E4%BD%8D%E7%BD%AE%EF%BC%8C%E9%80%86%E5%BA%8F%E5%88%97%E5%8F%AA%E5%92%8C%E4%B8%BA%E9%80%86%E5%BA%8F%E6%95%B0%EF%BC%89">https://blog.csdn.net/ojshilu/article/details/17066737（逆序列，每个元素交换多少次到正确位置，逆序列只和为逆序数）</a></p>
+<p>逆序数提供的是<strong>最少的交换次数</strong>（逆序数），其他和冒牌排序很像</p>
+<h2 id="神学DP"><a href="#神学DP" class="headerlink" title="神学DP"></a>神学DP</h2><p>最大公共子串 <a target="_blank" rel="noopener" href="https://blog.csdn.net/blue_mxy/article/details/108087750%EF%BC%88%E7%9B%AE%E5%89%8D%E5%BA%94%E8%AF%A5%E6%98%AF%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84DP">https://blog.csdn.net/blue_mxy/article/details/108087750（目前应该是最简单的DP</a></p>
+<h3 id="外卷游戏后端"><a href="#外卷游戏后端" class="headerlink" title="外卷游戏后端"></a>外卷游戏后端</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42382539/article/details/120541717">https://blog.csdn.net/qq_42382539/article/details/120541717</a>  协议选择</p>
+<h3 id="不一定考的"><a href="#不一定考的" class="headerlink" title="不一定考的"></a>不一定考的</h3><p>范式：2NF（所有的非主属性要依赖于（所有的）主属性），部分依赖不可以</p>
+<p>3NF 不能有传递依赖</p>
 
       
 
