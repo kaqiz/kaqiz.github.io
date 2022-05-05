@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://img-blog.csdn.net/20180718083935737?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Jyb29rXw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/465153e54e18e4a6b884de19e34fb181.png">
 <meta property="article:published_time" content="2022-04-05T06:33:18.000Z">
-<meta property="article:modified_time" content="2022-05-04T17:55:55.909Z">
+<meta property="article:modified_time" content="2022-05-05T16:03:47.446Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
@@ -194,11 +194,22 @@
 <p><strong>pool中任何存放的值可以在任何时候被删除而不会收到通知。</strong></p>
 <p>个人觉得它的名字有一定的误导性，因为 Pool 里装的对象可以被无通知地被回收，<strong>觉得 sync.Cache 的名字更合适sync.Pool的命名。</strong></p>
 <p><strong>存入对象池的值有可能会在垃圾回收时被删除掉</strong></p>
-<h4 id="Sync-Map"><a href="#Sync-Map" class="headerlink" title="Sync.Map"></a>Sync.Map</h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/344834329">https://zhuanlan.zhihu.com/p/344834329</a></p>
+<h4 id="Sync-Map"><a href="#Sync-Map" class="headerlink" title="Sync.Map"></a>Sync.Map</h4><p>原生的map支持并发读，但是只要写入混进就会发生panic</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/344834329">https://zhuanlan.zhihu.com/p/344834329</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a348752377/article/details/104972194%EF%BC%88%E8%A1%A5%E5%85%85%E7%9D%80%E7%9C%8B%EF%BC%8C%E5%86%99%E7%9A%84%E6%9B%B4%E6%B8%85%E6%A5%9A%E4%B8%80%E7%82%B9%EF%BC%89">https://blog.csdn.net/a348752377/article/details/104972194（补充着看，写的更清楚一点）</a></p>
+<p>而使用 <code>sync.map</code> 之后，对 map 的读写，不需要加锁。并且它通过空间换时间的方式，使用 read 和 dirty 两个 map 来进行<strong>读写分离</strong>，降低锁时间来提高效率。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Map <span class="keyword">struct</span> &#123;</span><br><span class="line">    mu Mutex</span><br><span class="line">    read atomic.Value <span class="comment">// readOnly</span></span><br><span class="line">    dirty <span class="keyword">map</span>[<span class="keyword">interface</span>&#123;&#125;]*entry</span><br><span class="line">    misses <span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>每当从 read 中读取失败，都会将 <code>misses</code> 的计数值加 1，当加到一定阈值以后，需要将 dirty 提升为 read，以期减少 miss 的情形。</p>
 <p><code>read map</code> 和 <code>dirty map</code> 的存储方式是不一致的。<br>前者使用 atomic.Value，后者只是单纯的使用 map。<br>原因是 read map 使用 lock free 操作，必须保证 load/store 的原子性；而 dirty map 的 load+store 操作是由 lock（就是 mu）来保护的。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">    <span class="string">&quot;sync&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">    <span class="keyword">var</span> m sync.Map</span><br><span class="line">    <span class="comment">// 1. 写入</span></span><br><span class="line">    m.Store(<span class="string">&quot;qcrao&quot;</span>, <span class="number">18</span>)</span><br><span class="line">    m.Store(<span class="string">&quot;stefno&quot;</span>, <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 读取</span></span><br><span class="line">    age, _ := m.Load(<span class="string">&quot;qcrao&quot;</span>)</span><br><span class="line">    fmt.Println(age.(<span class="keyword">int</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 遍历</span></span><br><span class="line">    m.Range(<span class="function"><span class="keyword">func</span><span class="params">(key, value <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">bool</span></span> &#123; <span class="comment">//变成了内置方法，而且要自己提供函数</span></span><br><span class="line">        name := key.(<span class="keyword">string</span>)</span><br><span class="line">        age := value.(<span class="keyword">int</span>)</span><br><span class="line">        fmt.Println(name, age)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 删除</span></span><br><span class="line">    m.Delete(<span class="string">&quot;qcrao&quot;</span>)</span><br><span class="line">    age, ok := m.Load(<span class="string">&quot;qcrao&quot;</span>)</span><br><span class="line">    fmt.Println(age, ok)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 读取或写入</span></span><br><span class="line">    m.LoadOrStore(<span class="string">&quot;stefno&quot;</span>, <span class="number">100</span>) <span class="comment">//读取，若不存在则存储</span></span><br><span class="line">    age, _ = m.Load(<span class="string">&quot;stefno&quot;</span>)</span><br><span class="line">    fmt.Println(age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面map中的read数据结构详情如下，它里面也有一套map</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> readOnly <span class="keyword">struct</span> &#123;</span><br><span class="line">    m       <span class="keyword">map</span>[<span class="keyword">interface</span>&#123;&#125;]*entry</span><br><span class="line">    amended <span class="keyword">bool</span> <span class="comment">// true if the dirty map contains some key not in m.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
 <hr>
 <h3 id="Go-Stub"><a href="#Go-Stub" class="headerlink" title="Go Stub"></a>Go Stub</h3><p>打桩？<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/44355571888d">https://www.jianshu.com/p/44355571888d</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.axiaoxin.com/article/247/">https://www.axiaoxin.com/article/247/</a></p>
@@ -226,7 +237,7 @@
 <li>数组切片越界</li>
 <li>关闭未初始化的通道；<strong>重复关闭通道</strong>；向已经关闭的通道中<code>发送</code>数据（接受不会），关闭一个 nil channel 将会发生 panic</li>
 <li>直接操作<strong>未初始化</strong>的映射（<code>map</code>），也会引发 panic</li>
-<li><strong>同时对同一个map并发读写，它会触发 runtime.throw，不像 panic 可以使用 recover 捕获。所以，我们在对同一个映射并发读写时，一定要使用锁。（不然直接panic，直接panic!!)</strong></li>
+<li><strong>同时对同一个map并发读写，它会触发 runtime.throw，不像 panic 可以使用 recover 捕获。所以，我们在对同一个映射并发读写时，一定要使用锁。（不是Panic，是直接runtime.exit()了！！！！，并发读没问题，混入写就出错！！)</strong></li>
 <li>如果不接受bool类型的值的话，断言失败会panic</li>
 </ul>
 <hr>
@@ -387,7 +398,7 @@
 <p>  （1）最简单，最常用的方法就是进行系统的重新启动，不过这种方法代价很大，它意味着在这之前所有的进程已经完成的计算工作都将付之东流，包括参与死锁的那些进程，以及未参与死锁的进程。</p>
 <p>  （2）<strong>撤消进程，剥夺资源。终止参与死锁的进程，收回它们占有的资源，从而解除死锁</strong>。这时又分两种情况：一次性撤消参与死锁的全部进程，剥夺全部资源；或者逐步撤消参与死锁的进程，逐步收回死锁进程占有的资源。一般来说，选择逐步撤消的进程时要按照一定的原则进行，<code>目的是撤消那些代价最小的进程，比如按进程的优先级确定进程的代价；考虑进程运行时的代价和与此进程相关的外部作业的代价等因素。</code> </p>
 <p> 此外，还有进程回退策略，即让参与死锁的进程回退到没有发生死锁前某一点处，并由此点处继续执行，以求再次执行时不再发生死锁。虽然这是个较理想的办法，但是操作起来系统开销极大，要有堆栈这样的机构记录进程的每一步变化，以便今后的回退，有时这是无法做到的。</p>
-<p>　</p>
+<hr>
 <h3 id="Mysql一张表能放多少数据"><a href="#Mysql一张表能放多少数据" class="headerlink" title="Mysql一张表能放多少数据"></a>Mysql一张表能放多少数据</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq1309664161/article/details/124032981">https://blog.csdn.net/qq1309664161/article/details/124032981</a></p>
 <p><strong>由此可见，在索引覆盖的情况下，一张表能存多少数据，跟索引列大小有直接关系。索引列小时，千万级别数据没问题，索引列大时，能存百万级别数据。</strong></p>
 <p><img src="https://img-blog.csdnimg.cn/e1e87876419a4287a017066615375bc5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5bCP6YWl,size_16,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
@@ -404,6 +415,8 @@
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/littlewhitevg/article/details/108247860">https://blog.csdn.net/littlewhitevg/article/details/108247860</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/leonpenn/article/details/72832010">https://blog.csdn.net/leonpenn/article/details/72832010</a></p>
 <p><strong>InnoDB支持行锁（锁定字段含有索引的情况下，否则走表锁）</strong>，但锁定方式并非简单的锁定指定行上的索引，而是分为3种锁定算法：<br>1）记录锁（Record Locks）：锁定指定行的索引项<br>2）Gap Locks：锁定某一个范围内的索引，但不包括记录本身<br>3）间隙锁定（Next-Key Locks）：锁定<strong>一个范围内</strong>的索引，并且<strong>锁定记录本身</strong> </p>
+<h3 id="联合索引（最左前缀原则）"><a href="#联合索引（最左前缀原则）" class="headerlink" title="联合索引（最左前缀原则）"></a>联合索引（最左前缀原则）</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/c1776167012/article/details/120788728">https://blog.csdn.net/c1776167012/article/details/120788728</a></p>
+<p>联合索引的一个优势就是：可以对第二个键值进行排序</p>
 <hr>
 <h3 id="Linux-命令"><a href="#Linux-命令" class="headerlink" title="Linux 命令"></a>Linux 命令</h3><p>Grep <a target="_blank" rel="noopener" href="https://www.cnblogs.com/baichunyu/p/15314049.html">https://www.cnblogs.com/baichunyu/p/15314049.html</a> </p>
 <h3 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h3><h4 id="只要是”-”这个字符是在中括号”-”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”-”中使用，不包括嵌套使用。"><a href="#只要是”-”这个字符是在中括号”-”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”-”中使用，不包括嵌套使用。" class="headerlink" title="^  只要是”^”这个字符是在中括号”[]”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”[]”中使用，不包括嵌套使用。"></a>^  只要是”^”这个字符是在中括号”[]”中被使用的话就是表示字符类的否定，如果不是的话就是表示限定开头。我这里说的是直接在”[]”中使用，不包括嵌套使用。</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/doubleguy/article/details/90341705">https://blog.csdn.net/doubleguy/article/details/90341705</a></p>
@@ -432,6 +445,16 @@
 <p>服务端可以在发送页面HTML时主动向客户端推送其它资源，而无需等到客户端浏览器解析到相应位置重新发起请求再响应。</p>
 <p><code>但是服务器只能主动将资源推送到客户端缓存！并不允许将数据推送到客户端里跑的 Web App 本身</code></p>
 <p><code>websocket</code>是基于TCP的，并不是基于HTTP</p>
+<hr>
+<h3 id="4层负载均衡与7层负载均衡（这东西是针对7层协议来说的）"><a href="#4层负载均衡与7层负载均衡（这东西是针对7层协议来说的）" class="headerlink" title="4层负载均衡与7层负载均衡（这东西是针对7层协议来说的）"></a>4层负载均衡与7层负载均衡（这东西是针对7层协议来说的）</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/elimsc/p/15992255.html">https://www.cnblogs.com/elimsc/p/15992255.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/iKaChu/article/details/105977909">https://blog.csdn.net/iKaChu/article/details/105977909</a></p>
+<p>在OSI 7层模型中，从下往上，应用层属于第七层，而传输层属于第四层，<br>所谓四层即运输层，就是基于 IP + 端口的负载均衡；<br>七层即应用层，就是基于 URL 等应用层信息的负载均衡；<br>同理，还有基于 MAC 地址的二层负载均衡和基于 IP 地址的三层负载均衡。</p>
+<p>4层负载均衡作用于传输层，只能看到ip和端口。</p>
+<ul>
+<li>当请求过来的时候，4层负载均衡器根据自己的负载均衡策略决定真正处理请求的服务器IP，负载均衡器会将包的目的IP地址改为真正处理请求的服务器IP（客户端请求的时候，目的IP是负载均衡器的IP），然后把包转发给那个服务器。</li>
+<li>在将响应给到客户端之前，也会将包的源IP地址改为自己的IP地址（本来是实际处理请求的服务器IP）</li>
+</ul>
+<p>7层负载均衡作用于应用层，它会根据应用层数据的具体内容来作出决策，例如它可能会根据HTTP请求头里面的URL，数据类型，cookie信息等来决定实际处理请求的服务器。<br>例如，由于7层负载均衡器可以确定客户端请求的数据类型（视频、文本等），因此可以不必在所有负载均衡服务器上复制相同的数据。</p>
 <hr>
 <h3 id="分布式相关"><a href="#分布式相关" class="headerlink" title="分布式相关"></a>分布式相关</h3><p>为什么<strong>数据库主键</strong>用snowflake不使用uuid（这玩意是字符串）</p>
 <p>UUID格式</p>
