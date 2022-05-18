@@ -146,6 +146,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于nsq" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/02/%E5%85%B3%E4%BA%8Ensq/">关于nsq</a>
+    </h1>
+  
+
+        
+        <a href="/2021/08/02/%E5%85%B3%E4%BA%8Ensq/" class="archive-article-date">
+  	<time datetime="2021-08-02T10:39:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sd653159/article/details/83624661">https://blog.csdn.net/sd653159/article/details/83624661</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/phpper/p/13408463.html">https://www.cnblogs.com/phpper/p/13408463.html</a><br><a target="_blank" rel="noopener" href="https://studygolang.com/articles/9749">https://studygolang.com/articles/9749</a>  (更详细一点)</p>
+<h1 id="nsqlookupd："><a href="#nsqlookupd：" class="headerlink" title="nsqlookupd："></a>nsqlookupd：</h1><p>主要负责服务发现 负责nsqd的心跳、状态监测，给客户端、nsqadmin提供nsqd地址与状态，启动命令如下：</p>
+<h1 id="nsqd"><a href="#nsqd" class="headerlink" title="nsqd"></a>nsqd</h1><p>负责接收消息，存储队列和将消息发送给客户端，nsqd 可以多机器部署，当你使用客户端向一个topic发送消息时，可以配置多个nsqd地址，消息会随机的分配到各个nsqd上，nsqd优先把消息存储到内存channel中，当内存channel满了之后，则把消息写到磁盘文件中。他监听了两个tcp端口，一个用来服务客户端，一个用来提供http的接口 ，启动命令如下：</p>
+<h1 id="nsqadmin"><a href="#nsqadmin" class="headerlink" title="nsqadmin"></a>nsqadmin</h1><p>web管理页面</p>
+<h1 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">消息队列</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/02/%E5%85%B3%E4%BA%8Ensq/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-设计与画图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -757,81 +834,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/07/14/%E5%85%B3%E4%BA%8Ek8s/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-go-zero要饭之路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/10/go-zero%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">go-zero要饭之路</a>
-    </h1>
-  
-
-        
-        <a href="/2021/07/10/go-zero%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/" class="archive-article-date">
-  	<time datetime="2021-07-10T05:04:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>项目地址 <a target="_blank" rel="noopener" href="https://github.com/tal-tech/go-zero">https://github.com/tal-tech/go-zero</a><br>文档 <a target="_blank" rel="noopener" href="https://go-zero.dev/cn/">https://go-zero.dev/cn/</a>(永远滴神！！！)</p>
-<h2 id="go-ctl"><a href="#go-ctl" class="headerlink" title="go-ctl"></a>go-ctl</h2><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1801931">https://cloud.tencent.com/developer/article/1801931</a> </p>
-<h2 id="限流"><a href="#限流" class="headerlink" title="限流"></a>限流</h2><p>令牌桶<br>漏桶  </p>
-<h2 id="分级降载"><a href="#分级降载" class="headerlink" title="分级降载"></a>分级降载</h2><p>Cpu大于90%的时候 拒绝低优先级请求<br>滑动窗口  </p>
-<h2 id="熔断"><a href="#熔断" class="headerlink" title="熔断"></a>熔断</h2><p>Google SRE算法（比Netfix Hystrix算法好）  </p>
-<h2 id="超时控制"><a href="#超时控制" class="headerlink" title="超时控制"></a>超时控制</h2><p>一般一个service总是以秒级为单位的（一般是几个小的service叠加起来）</p>
-<h2 id="重试（go-zero里暂时没有自动重试）"><a href="#重试（go-zero里暂时没有自动重试）" class="headerlink" title="重试（go-zero里暂时没有自动重试）"></a>重试（go-zero里暂时没有自动重试）</h2><p>指数退避  </p>
-<h2 id="http请求校验"><a href="#http请求校验" class="headerlink" title="http请求校验"></a>http请求校验</h2><p>goctl</p>
-<h2 id="缓存设计-（goctl支持一键生成）"><a href="#缓存设计-（goctl支持一键生成）" class="headerlink" title="缓存设计 （goctl支持一键生成）"></a>缓存设计 （goctl支持一键生成）</h2><p>缓存穿透（数据不存在）<br>查不到也自动缓存（但是时间比较短，一分钟）</p>
-<p>缓存击穿（热点key过期了）<br>确保一个进程同时只拿一个（类似加锁）</p>
-<p>缓存雪崩（大量缓存一起过期）<br>对缓存过期时间设置<code>随机偏差</code>，确保分散过期</p>
-<h3 id="缓存基于非主键的查询（如果查的是非主键的缓存）"><a href="#缓存基于非主键的查询（如果查的是非主键的缓存）" class="headerlink" title="缓存基于非主键的查询（如果查的是非主键的缓存）"></a>缓存基于非主键的查询（如果查的是非主键的缓存）</h3><p>转换为主键做缓存  查询-&gt;主键-&gt;缓存</p>
-<h3 id="分布式缓存"><a href="#分布式缓存" class="headerlink" title="分布式缓存"></a>分布式缓存</h3><p>一致性哈希 </p>
-<h2 id="可观测性"><a href="#可观测性" class="headerlink" title="可观测性"></a>可观测性</h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/10/go-zero%E8%A6%81%E9%A5%AD%E4%B9%8B%E8%B7%AF/">展开全文 >></a>
         </p>
       
 

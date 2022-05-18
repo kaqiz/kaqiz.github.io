@@ -146,6 +146,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-golang双端链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/30/golang%E5%8F%8C%E7%AB%AF%E9%93%BE%E8%A1%A8/">golang双端链表</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/30/golang%E5%8F%8C%E7%AB%AF%E9%93%BE%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2022-03-30T13:45:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="container-list-双向链表-List"><a href="#container-list-双向链表-List" class="headerlink" title="container/list-双向链表-List"></a>container/list-双向链表-List</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Element <span class="keyword">struct</span> &#123;</span><br><span class="line">	<span class="comment">// Next and previous pointers in the doubly-linked list of elements.</span></span><br><span class="line">	<span class="comment">// To simplify the implementation, internally a list l is implemented</span></span><br><span class="line">	<span class="comment">// as a ring, such that &amp;l.root is both the next element of the last</span></span><br><span class="line">	<span class="comment">// list element (l.Back()) and the previous element of the first list</span></span><br><span class="line">	<span class="comment">// element (l.Front()).</span></span><br><span class="line">	next, prev *Element</span><br><span class="line"></span><br><span class="line">	<span class="comment">// The list to which this element belongs.</span></span><br><span class="line">	list *List</span><br><span class="line"></span><br><span class="line">	<span class="comment">// The value stored with this element.</span></span><br><span class="line">	Value <span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// List represents a doubly linked list.</span></span><br><span class="line"><span class="comment">// The zero value for List is an empty list ready to use.</span></span><br><span class="line"><span class="keyword">type</span> List <span class="keyword">struct</span> &#123;</span><br><span class="line">	root Element <span class="comment">// sentinel list element, only &amp;root, root.prev, and root.next are used</span></span><br><span class="line">	<span class="built_in">len</span>  <span class="keyword">int</span>     <span class="comment">// current list length excluding (this) sentinel element</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>双向链表是链表的一种，它的每个数据结点中都有两个指针，分别指向直接后继和直接前驱。所以，从双向链表中的任意一个结点开始，都可以很方便地访问它的前驱结点和后继结点。一般我们都构造双向循环链表。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;container/list&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">print</span><span class="params">(l *list.List)</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> e := l.Front(); e != <span class="literal">nil</span>; e = e.Next() &#123;</span><br><span class="line">		fmt.Println(e.Value)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	l := list.New()</span><br><span class="line">	l.PushBack(<span class="number">1</span>) <span class="comment">//尾插</span></span><br><span class="line">	l.PushBack(<span class="number">2</span>)</span><br><span class="line">	<span class="built_in">print</span>(l)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;=========&quot;</span>)</span><br><span class="line"></span><br><span class="line">	l.PushFront(<span class="number">0</span>) <span class="comment">//头插</span></span><br><span class="line">	<span class="built_in">print</span>(l)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;=========&quot;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> e := l.Front(); e != <span class="literal">nil</span>; e = e.Next() &#123;</span><br><span class="line">		<span class="keyword">if</span> e.Value == <span class="number">1</span> &#123;</span><br><span class="line">			l.InsertAfter(<span class="number">1.1</span>, e)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> e.Value == <span class="number">2</span> &#123;</span><br><span class="line">			l.InsertBefore(<span class="number">1.2</span>, e)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">print</span>(l)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;=========&quot;</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(l.Front().Value) <span class="comment">//返回链表的第一个元素</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;=========&quot;</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(l.Back().Value) <span class="comment">//返回链表的最后一个元素</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;=========&quot;</span>)</span><br><span class="line"></span><br><span class="line">	l.MoveToBack(l.Front())</span><br><span class="line">	<span class="built_in">print</span>(l)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;=========&quot;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> e := l.Back(); e != <span class="literal">nil</span>; e = e.Prev() &#123;</span><br><span class="line">		fmt.Println(e.Value)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">container</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/30/golang%E5%8F%8C%E7%AB%AF%E9%93%BE%E8%A1%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-golang优先队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -398,6 +475,9 @@
         <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lbh199466/article/details/102852326">https://blog.csdn.net/lbh199466/article/details/102852326</a></p>
 <p>ISR （IN-SYNC Replication） 维护了与leader信息一致的follower的信息</p>
 <p>ZK中存储了这个ISR！</p>
+<p>众所周知，<strong>kafka中一个topic可以分为多个Partition</strong>，每个partition又有多个副本，对于每个topic的partition而言，有一个leader副本，其余的都是follower，</p>
+<p>leader负责读与写，follower同步leader的数据。当leader挂掉的时候，由controller主持在剩余follower中选举出一个leader。<strong>但是这个剩余follower有一个条件，就是follower必须在ISR列表中</strong>。</p>
+<p>ISR （IN-SYNC Replication） 维护了与leader信息一致的follower的信息，<strong>当leader挂掉的时候 就从这个ISR中选举</strong></p>
 
       
 
@@ -770,83 +850,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/08/06/%E5%85%B3%E4%BA%8Eswagger%E6%96%87%E6%A1%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于nsq" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/02/%E5%85%B3%E4%BA%8Ensq/">关于nsq</a>
-    </h1>
-  
-
-        
-        <a href="/2021/08/02/%E5%85%B3%E4%BA%8Ensq/" class="archive-article-date">
-  	<time datetime="2021-08-02T10:39:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sd653159/article/details/83624661">https://blog.csdn.net/sd653159/article/details/83624661</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/phpper/p/13408463.html">https://www.cnblogs.com/phpper/p/13408463.html</a><br><a target="_blank" rel="noopener" href="https://studygolang.com/articles/9749">https://studygolang.com/articles/9749</a>  (更详细一点)</p>
-<h1 id="nsqlookupd："><a href="#nsqlookupd：" class="headerlink" title="nsqlookupd："></a>nsqlookupd：</h1><p>主要负责服务发现 负责nsqd的心跳、状态监测，给客户端、nsqadmin提供nsqd地址与状态，启动命令如下：</p>
-<h1 id="nsqd"><a href="#nsqd" class="headerlink" title="nsqd"></a>nsqd</h1><p>负责接收消息，存储队列和将消息发送给客户端，nsqd 可以多机器部署，当你使用客户端向一个topic发送消息时，可以配置多个nsqd地址，消息会随机的分配到各个nsqd上，nsqd优先把消息存储到内存channel中，当内存channel满了之后，则把消息写到磁盘文件中。他监听了两个tcp端口，一个用来服务客户端，一个用来提供http的接口 ，启动命令如下：</p>
-<h1 id="nsqadmin"><a href="#nsqadmin" class="headerlink" title="nsqadmin"></a>nsqadmin</h1><p>web管理页面</p>
-<h1 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">消息队列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/02/%E5%85%B3%E4%BA%8Ensq/">展开全文 >></a>
         </p>
       
 
