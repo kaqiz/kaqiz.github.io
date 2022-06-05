@@ -178,6 +178,31 @@
 <p>binary_search bool</p>
 <p>lower_bound (第一个<strong>大于等于</strong>的下标）</p>
 <p>upperr_bound (第一个大于的下标）</p>
+<hr>
+<h3 id="输出函数（auto-i-这个后面是地址值，不需要用指针的-gt-取值了"><a href="#输出函数（auto-i-这个后面是地址值，不需要用指针的-gt-取值了" class="headerlink" title="输出函数（auto i:__)这个后面是地址值，不需要用指针的-&gt;取值了"></a>输出函数（auto i:__)这个后面是地址值，不需要用指针的-&gt;取值了</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintMap</span><span class="params">(T &amp;a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> item:a)&#123;</span><br><span class="line">        <span class="comment">//cout&lt;&lt;item-&gt;first&lt;&lt;&quot; &quot;&lt;&lt;item-&gt;second;</span></span><br><span class="line">        cout&lt;&lt;item.first&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;item.second;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintVec</span><span class="params">(T &amp;a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> item:a)&#123;</span><br><span class="line">        cout&lt;&lt;item&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="keyword">int</span>&gt; vec&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">set&lt;<span class="keyword">int</span>&gt; st&#123;<span class="number">12</span>,<span class="number">22</span>,<span class="number">33</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">5</span>] = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="for-each（每一个）"><a href="#for-each（每一个）" class="headerlink" title="for_each（每一个）"></a>for_each（每一个）</h3><p>匿名函数   【=】(值传递)，[&amp;]引用传递</p>
+<hr>
+<h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><ul>
+<li><p>copy（好像可以跨不同stl容器复制，可以把set的扔到vector里，反过来好像不行，注意被复制的vector要提前指定大小，一定要有大小，小的话后面不存，多的话后面是0值）</p>
+</li>
+<li><p>reverse</p>
+</li>
+<li><p>remove（不建议使用，会返回一个指向end的迭代器，感觉不如stl内置的erase好用）</p>
+</li>
+<li><p>find(这个也是algorithm里面的，不是vector的内置方法，会返回一个迭代器)</p>
+</li>
+</ul>
+<hr>
+<h3 id="优先队列（默认是大顶堆）"><a href="#优先队列（默认是大顶堆）" class="headerlink" title="优先队列（默认是大顶堆）"></a>优先队列（默认是大顶堆）</h3><h4 id="自定义顺序"><a href="#自定义顺序" class="headerlink" title="自定义顺序"></a>自定义顺序</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmp</span>&#123;</span></span><br><span class="line">    <span class="comment">//这个地方不用friend，一个括号就行了</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span> <span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x&gt;y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;<span class="keyword">int</span>,vector&lt;<span class="keyword">int</span>&gt;,cmp&gt; q;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -807,6 +832,16 @@
 <p><a target="_blank" rel="noopener" href="https://www.axiaoxin.com/article/247/">https://www.axiaoxin.com/article/247/</a></p>
 <p>被测试模块还没写完，造一个假的返回值</p>
 <hr>
+<h3 id="Golang包之间的权限问题"><a href="#Golang包之间的权限问题" class="headerlink" title="Golang包之间的权限问题"></a>Golang包之间的权限问题</h3><p>golang中根据首字母的大小写来确定可以访问的权限。无论是方法名、常量、变量名还是<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E7%BB%93%E6%9E%84%E4%BD%93&spm=1001.2101.3001.7020">结构体</a>的名称，<strong>如果首字母大写，则可以被其他的包访问；如果首字母小写，则只能在本包中使用</strong>。</p>
+<h4 id="关于internal包"><a href="#关于internal包" class="headerlink" title="关于internal包"></a>关于internal包</h4><p><a target="_blank" rel="noopener" href="https://turbock79.cn/?p=3964">https://turbock79.cn/?p=3964</a></p>
+<ul>
+<li><p>只有直接父级package可以访问，其他的都不行，再往上的祖先package也不行</p>
+<p>例如，一个包的路径<code>.../a/b/c/internal/d/e/f</code>只能被<code>.../a/b/c</code>的代码层级包引入，不能被<code>.../a/b/g</code>或其他的任意目录引用；（指的是internal这个大文件夹，internal内部怎么搞就和之前一样了）</p>
+</li>
+<li><p>父级package也只能访问internal package使用大写暴露出的内容，小写的不行</p>
+</li>
+</ul>
+<hr>
 <h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1k44y1a7SW/?spm_id_from=333.788">https://www.bilibili.com/video/BV1k44y1a7SW/?spm_id_from=333.788</a></p>
 <h4 id="关于Error-Wrap"><a href="#关于Error-Wrap" class="headerlink" title="关于Error Wrap"></a>关于Error Wrap</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/394f3c549f84">https://www.jianshu.com/p/394f3c549f84</a></p>
 <p>Wrap  Unwrap Is As</p>
@@ -1133,6 +1168,7 @@
 <p>服务端可以在发送页面HTML时主动向客户端推送其它资源，而无需等到客户端浏览器解析到相应位置重新发起请求再响应。</p>
 <p><code>但是服务器只能主动将资源推送到客户端缓存！并不允许将数据推送到客户端里跑的 Web App 本身</code></p>
 <p><code>websocket</code>是基于TCP的，并不是基于HTTP</p>
+<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><p> <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000016975064">https://segmentfault.com/a/1190000016975064</a></p>
 <hr>
 <h3 id="4层负载均衡与7层负载均衡（这东西是针对7层协议来说的）"><a href="#4层负载均衡与7层负载均衡（这东西是针对7层协议来说的）" class="headerlink" title="4层负载均衡与7层负载均衡（这东西是针对7层协议来说的）"></a>4层负载均衡与7层负载均衡（这东西是针对7层协议来说的）</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/elimsc/p/15992255.html">https://www.cnblogs.com/elimsc/p/15992255.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/iKaChu/article/details/105977909">https://blog.csdn.net/iKaChu/article/details/105977909</a></p>
@@ -1194,10 +1230,10 @@
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c21e5d6889bd">https://www.jianshu.com/p/c21e5d6889bd</a></p>
 <p>MSL是一个系统级参数，可调。</p>
 <p>在TIME_WAIT状态时两端的端口不能使用，要等到2MSL时间结束才可继续使用。</p>
-<p>2MSL的原因</p>
+<p>2MSL的原因 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/67013338">https://www.zhihu.com/question/67013338</a></p>
 <ul>
 <li>确保数据报已经在网络中消失了，不污染后面的数据报（？之前发的报文可能延后到，要是之后要是客户机再使用相同的端口连就麻烦了？）</li>
-<li>重传保证</li>
+<li>重传保证  ACK消息最大存活时间（MSL) + 来向FIN消息的最大存活时间(MSL)。服务器重传应该也是2MSL</li>
 </ul>
 <p><img src="https://img-blog.csdn.net/20180718083935737?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Jyb29rXw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
 <p><strong>服务端CLose-Wait</strong></p>
@@ -1432,7 +1468,40 @@
 <p>但需要额外注意，小表广播的使用限定：</p>
 <p>表数据量少，尽量不应超过10万；<br>数据的更新不能太频繁；<br>过大的表和更新过于频繁，都容易增加DRDS数据库底层IO压力和网络消耗。</p>
 <hr>
+<h3 id="Go-原生RPC（这个是HTTP和TCP都行）"><a href="#Go-原生RPC（这个是HTTP和TCP都行）" class="headerlink" title="Go 原生RPC（这个是HTTP和TCP都行）"></a>Go 原生RPC（这个是HTTP和TCP都行）</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/405536468">https://zhuanlan.zhihu.com/p/405536468</a></p>
+<hr>
+<h3 id="GRPC"><a href="#GRPC" class="headerlink" title="GRPC"></a>GRPC</h3><p>gRPC-go 以http2作为底层传输协议，支持长链接</p>
+<p> <strong><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=gRPC&spm=1001.2101.3001.7020">gRPC</a> 使用 HTTP/2.0 作为传输协议， 从该协议的设计来讲， 长连接也是更推荐的使用方式</strong></p>
+<h4 id="GRPC限流"><a href="#GRPC限流" class="headerlink" title="GRPC限流"></a>GRPC限流</h4><hr>
 <h3 id="洋文"><a href="#洋文" class="headerlink" title="洋文"></a>洋文</h3><p>immutable 不可改变的</p>
+<hr>
+<p>共享内存通信，指向栈上的字符串指针能读取吗？（进程的隔离）</p>
+<p>网络层一个必过的路由器挂了，对传输层有影响吗？</p>
+<p>链路层具体作用？</p>
+<h3 id="-3"><a href="#-3" class="headerlink" title></a></h3><h2 id="进程的三种基本状态"><a href="#进程的三种基本状态" class="headerlink" title="进程的三种基本状态"></a>进程的三种基本状态</h2><p><img src="https://img-blog.csdnimg.cn/20191021105413318.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L05vQnVnZ2ll,size_16,color_FFFFFF,t_70" alt="进程的三态转换"></p>
+<h3 id="三种基本状态"><a href="#三种基本状态" class="headerlink" title="三种基本状态"></a>三种基本状态</h3><ul>
+<li>就绪状态：进程已得到运行所需资源，只等待CPU的调度便可运行。<strong>（进程啥都有了，就看CPU爸爸选不选了（调度））</strong></li>
+<li>运行状态：进程已得到运行所需资源，并且得到了CPU的调度。<strong>（进程被CPU爸爸选中了）</strong></li>
+<li>挂起：不具备运行条件、等待时机的状态<strong>（由于某些原因，CPU爸爸不会要你了）</strong></li>
+</ul>
+<h3 id="三种基本状态之间的转换"><a href="#三种基本状态之间的转换" class="headerlink" title="三种基本状态之间的转换"></a>三种基本状态之间的转换</h3><ul>
+<li>就绪&gt;&gt;&gt;运行: 被调度程序选中</li>
+<li>运行&gt;&gt;&gt;就绪: 时间片到了(超时), 或被更高优先级的进程剥夺了</li>
+<li>运行&gt;&gt;&gt;挂起: 不具备运行条件,等待某一时间的发生</li>
+<li>挂起&gt;&gt;&gt;就绪: 等待的事件已发生, 具备了运行条件</li>
+<li>在状态转换中, <strong>不能 挂起&gt;&gt;&gt;运行, 也不能 就绪&gt;&gt;&gt;挂起</strong></li>
+</ul>
+<hr>
+<h3 id="CPU负载率"><a href="#CPU负载率" class="headerlink" title="CPU负载率"></a>CPU负载率</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/384468564">https://zhuanlan.zhihu.com/p/384468564</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-ba61b5707d5016d2581582f217ddf0aa_720w.jpg" alt="img"></p>
+<hr>
+<h3 id="PProf"><a href="#PProf" class="headerlink" title="PProf"></a>PProf</h3><p> go tool pprof -http=:8080 “测试url，其实换个后缀就行”</p>
+<p>如：go tool pprof -http=:8080 “<a target="_blank" rel="noopener" href="http://localhost:8080/debug/pprof/heap&quot;">http://localhost:8080/debug/pprof/heap&quot;</a></p>
+<hr>
+<h2 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h2><h3 id="惊群效应（羊群效应）"><a href="#惊群效应（羊群效应）" class="headerlink" title="惊群效应（羊群效应）"></a>惊群效应（羊群效应）</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lo_yun/article/details/99762636">https://blog.csdn.net/lo_yun/article/details/99762636</a></p>
+<p>Zookeeper分布式锁场景中的羊群效应指的是所有的客户端都尝试对一个临时节点去加锁，当一个锁被占有的时候，其他的客户端都会监听这个临时节点。一旦锁被释放，Zookeeper反向通知添加监听的客户端，然后大量的客户端都尝试去对同一个临时节点创建锁，最后也只有一个客户端能获得锁，但是大量的请求造成了很大的网络开销，加重了网络的负载，影响Zookeeper的性能。</p>
+<h4 id="解决办法（链表序号式监听，只监听上一个，避免一堆监听一个，造成被监听者太大的压力）"><a href="#解决办法（链表序号式监听，只监听上一个，避免一堆监听一个，造成被监听者太大的压力）" class="headerlink" title="解决办法（链表序号式监听，只监听上一个，避免一堆监听一个，造成被监听者太大的压力）"></a>解决办法（链表序号式监听，只监听上一个，避免一堆监听一个，造成被监听者太大的压力）</h4><p><img src="https://img-blog.csdnimg.cn/20190819211134205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xPX1lVTg==,size_16,color_FFFFFF,t_70" alt="curator分布式锁原理"></p>
+<p>其中最核心的思路就是获取锁时创建一个临时顺序节点，顺序最小的那个才能获取到锁，之后尝试加锁的客户端就<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E7%9B%91%E5%90%AC&spm=1001.2101.3001.7020">监听</a>自己的上一个顺序节点，当上一个顺序节点释放锁之后，<strong>自己尝试加锁，其余的客户端都对上一个临时顺序节点监听，不会一窝蜂的去尝试给同一个节点加锁导致羊群效应。</strong></p>
 <hr>
 
       
